@@ -1,0 +1,212 @@
+ul.boardlist li {
+  margin: 5px;
+}
+
+a.qty {
+  visibility: hidden;
+}
+
+a.qty::after {
+  visibility: visible !important;
+  display: inline-block;
+  width: 16px;
+  color: #1c1718 !important;
+  font-family: Beleren;
+  background: #dde6eb;
+  border-radius: 50vh;
+  content: attr(data-qty) !important;
+}
+
+.card a {
+  border-radius: 50vh;
+  border-width: 2px;
+  border-style: solid;
+  padding: 0.2rem 0.4rem;
+  color: #1c1718 !important;
+  font-family: Beleren;
+}
+
+.popover {
+  background: black !important;
+  border: 1px solid black !important;
+}
+
+.popover.right .arrow::after {
+  border-right-color: black !important;
+}
+
+.card-type-land[class*="card-mana-red"] a,
+[class*="card-color-red-cost"] a {
+  background: #f5d5c5;
+  border-color: #f94e29;
+}
+
+.card-type-land[class*="card-mana-green"] a,
+[class*="card-color-green-cost"] a {
+  background: #c2d5cc;
+  border-color: #038542;
+}
+
+.card-type-land[class*="card-mana-black"] a,
+[class*="card-color-black-cost"] a {
+  background: #aaa09f;
+  border-color: #2e2d2b;
+}
+
+.card-type-artifact.card-type-creature[class*="card-color-colorless-cost"] a,
+.card-type-artifact[class*="card-color-colorless-cost"] a {
+  background: #dde6eb !important;
+  border-color: #2e2d2b;
+}
+
+.card-type-creature[class*="card-color-colorless-cost"] a {
+  background: #b8b0a8;
+  border-color: #2e2d2b;
+}
+
+.card-type-land a {
+  background: #d8d6d3;
+  border-color: #2e2d2b;
+}
+
+.card-mana-green.card-mana-red.card-mana-black a,
+.card-type-creature[class*="card-color-gold-cost"] a {
+  background: #d5bc7d;
+  border-color: #fae066;
+}
+
+.card-color-black.card-color-green:not(.card-color-red) a,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a,
+.card-color-green.card-color-red:not(.card-color-black) a,
+.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a,
+.card-color-red.card-color-black:not(.card-color-green) a,
+.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a {
+  position: relative;
+  background-clip: padding-box !important;
+  border: 2px solid transparent !important;
+  z-index: 1;
+}
+
+
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a::before,
+.card-color-black.card-color-green:not(.card-color-red) a::before {
+  position: absolute;
+  content: " " attr(data-name);
+  top: 0px; bottom: 0px;
+  left: 0px; right: 0px;
+  background: #d5bc7d;
+  border-radius: 50vh;
+  z-index: 3;
+}
+
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a::after,
+.card-color-black.card-color-green:not(.card-color-red) a::after {
+  position: absolute;
+  content: "";
+  top: -2px; bottom: -2px;
+  left: -2px; right: -2px;
+  background: linear-gradient(to right, #494547 40%,#038542 60%);
+  border-radius: 50vh;
+  z-index: 2;
+}
+
+.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a::before,
+.card-color-green.card-color-red:not(.card-color-black) a::before {
+  position: absolute;
+  content: " " attr(data-name);
+  top: 0px; bottom: 0px;
+  left: 0px; right: 0px;
+  background: #d5bc7d;
+  border-radius: 50vh;
+  z-index: 3;
+}
+
+.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a::after,
+.card-color-green.card-color-red:not(.card-color-black) a::after {
+  position: absolute;
+  content: "";
+  top: -2px; bottom: -2px;
+  left: -2px; right: -2px;
+  background: linear-gradient(to right, #f94e29 40%,#038542 60%);
+  border-radius: 50vh;
+  z-index: 2;
+}
+
+.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a::before,
+.card-color-red.card-color-black:not(.card-color-green) a::before {
+  position: absolute;
+  content: " " attr(data-name);
+  top: 0px; bottom: 0px;
+  left: 0px; right: 0px;
+  background: #d5bc7d;
+  border-radius: 50vh;
+  z-index: 3;
+}
+
+.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a::after,
+.card-color-red.card-color-black:not(.card-color-green) a::after {
+  position: absolute;
+  content: "";
+  top: -2px; bottom: -2px;
+  left: -2px; right: -2px;
+  background: linear-gradient(to right, #494547 40%,#f94e29 60%);
+  border-radius: 50vh;
+  z-index: 2;
+}
+
+[src$="foil-icon.jpg"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 50vh;
+}
+
+#boardContainer-main-journey-to-eternity {
+  margin-top: -5px;
+}
+
+[data-name="Atzal, Cave of Eternity"] {
+  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg') !important;
+  height: 30px;
+  border-color: transparent !important;
+  background: transparent !important;
+  margin-bottom: -10px;
+  margin-left: -5px;
+  padding: 0px !important;
+}
+
+[data-name="Atzal, Cave of Eternity"]:hover {
+  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg') !important;
+  height: 30px;
+  border-color: transparent !important;
+  background: white !important;
+  margin-bottom: -10px;
+  margin-left: -5px;
+  background-clip: content-box !important;
+  padding: 0px !important;
+}
+
+#boardContainer-main-journey-to-eternity {
+  margin-top: -5px;
+}
+
+[data-name="Arlinn, Embraced by the Moon"] {
+  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg') !important;
+  height: 30px;
+  border-color: transparent !important;
+  background: white !important;
+  background-clip: content-box !important;
+  margin-bottom: -10px;
+  margin-left: -5px;
+  padding: 0px !important;
+}
+
+[data-name="Arlinn, Embraced by the Moon"]:hover {
+  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg') !important;
+  height: 30px;
+  border-color: transparent !important;
+  background: white !important;
+  background-clip: content-box !important;
+  margin-bottom: -10px;
+  margin-left: -5px;
+  padding: 0px !important;
+}
