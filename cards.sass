@@ -1,0 +1,156 @@
+$white: (cost: 'white', background: #dedede, border: #f7f8ee);
+$blue: (cost: 'blue', background: #b2cde2, border: #3459ae);
+$black: (cost: 'black', background: #c4bfba, border: #1c1512);
+$red: (cost: 'red', background: #fabe99, border: #f5081f);
+$green: (cost: 'green', background: #becdc0, border: #3e7632);
+
+$gold: (cost: 'gold', background: #d9c174, border: #efe777);
+$artifact: (cost: 'colorless', background: #d5dde1, border: #e4e5e5);
+$eldrazi: (cost: 'colorless', background: #dad5d1, border: #e5e7e9);
+$land: (background: #cdc2bf, border: #988b7e);
+
+$colors: $white $blue $black $red $green;
+$guilds: ($white $blue), ($white $black), ($blue $black), ($blue $red), ($black $green), ($black $red), ($red $white), ($red $green), ($green $white), ($green $blue);
+$shards: ($white $blue $black), ($blue, $black, $red), ($black, $red, $green), ($red, $green, $white), ($green, $white, $blue);
+$wedges: ($white $black $green), ($blue $red $white), ($black $green $blue), ($red $white $black), ($green $blue $red);
+
+@function remove($list, $value) {
+  $result: ();
+  
+  @if type-of($value) == list {
+    @each $item in $value {
+      $list: remove($list, $item);
+    }
+    
+    @return $list;
+  }
+
+  @each $item in $list {
+    @if $item != $value {
+      $result: append($result, $item);
+    }
+  }
+
+  @return $result;
+}
+
+ul.boardlist li {
+  margin: 5px;
+}
+
+.card a {
+  visibility: hidden;                
+  position: relative;
+  padding: 0.2rem 0.4rem;
+  color: #1f1e1f;
+  
+  &:before {
+    visibility: visible;
+    position: absolute;
+    content: attr(data-name);
+    font-family: 'beleren bold';
+    top: 0px; bottom: 0px;
+    left: 0px; right: 0px;
+    border-radius: 50vh;
+    z-index: 3;
+  }
+  
+  &:after {
+    visibility: visible;
+    position: absolute;
+    content: "";
+    top: -2px; bottom: -2px;
+    left: -2px; right: -2px;
+    border-radius: 50vh;
+    z-index: 2;
+  }
+}
+
+@function cost($color) {
+  @return map-get($color, 'cost');
+}
+
+@function background($color) {
+  @return map-get($color, 'background');
+}
+
+@function border($color) {
+  @return map-get($color, 'border');
+}
+
+@function spells($include, $exclude) {
+  $spells: "";
+  
+  @each $color in $include {
+    $spells: $spells + ".card-color-" + #{cost($color)};
+  }
+  
+  @if $exclude {
+    @each $color in $exclude {
+      $spells: $spells + ":not(.card-color-" + #{cost($color)} + ")";
+    }
+  }
+  
+  @return unquote($spells);
+}
+
+@function lands($include, $exclude) {
+  $lands: ".card-type-land";
+  
+  @each $color in $include {
+    $lands: $lands + '[class*="card-mana-' + #{cost($color)} + '"]';
+  }
+  
+  @if $exclude {
+    @each $color in $exclude {
+      $lands: $lands + ':not([class*="card-mana-' + #{cost($color)} + '"])';
+    }
+  }
+  
+  @return unquote($lands);
+}
+
+@mixin card-colors($include, $exclude: false) {
+  @if type-of($include) != list {
+    $include: ($include,);
+  }
+  
+  $leftgradient: border(nth($include, 1));
+  $rightgradient: border(nth($include, length($include)));
+  
+  $background: null;
+  $border: null;
+  
+  @if      length($include) == 1 { $background: background(nth($include, 1)) }
+  @else if length($include)  > 1 { $background: background($gold) }
+
+  @if      length($include) == 1 { $border: $leftgradient } 
+  @else if length($include) == 2 { $border: linear-gradient(to right, $leftgradient 40%, $rightgradient 60%) }
+  @else if length($include)  > 2 { $border: border($gold) }
+  
+  #{spells($include, $exclude)} a,
+  #{lands($include, $exclude)} a {
+    &:before {
+      background: $background;
+    }
+    &:after {
+      background: $border;
+    }
+  }
+}
+
+@each $color in $colors {
+  @include card-colors($color, remove($colors, $color));
+}
+
+@each $guild in $guilds {
+  @include card-colors($guild, remove($colors, $guild));
+}
+
+@each $shard in $shards {
+  @include card-colors($shard);
+}
+
+@each $wedge in $wedges {
+  @include card-colors($wedge);
+}
