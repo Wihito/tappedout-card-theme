@@ -35,7 +35,7 @@ $wedges: ($white $black $green), ($blue $red $white), ($black $green $blue), ($r
 }
 
 ul.boardlist li {
-  margin: 5px;
+  margin: 1px;
 }
 
 .card a {
@@ -43,16 +43,17 @@ ul.boardlist li {
   position: relative;
   padding: 0.2rem 0.4rem;
   color: #1f1e1f;
+  font-family: 'beleren bold';
   
   &:before {
     visibility: visible;
     position: absolute;
     content: attr(data-name);
-    font-family: 'beleren bold';
+    padding-left: 3px;
     top: 0px; bottom: 0px;
     left: 0px; right: 0px;
     border-radius: 50vh;
-    z-index: 3;
+    z-index: 2;
   }
   
   &:after {
@@ -62,7 +63,7 @@ ul.boardlist li {
     top: -2px; bottom: -2px;
     left: -2px; right: -2px;
     border-radius: 50vh;
-    z-index: 2;
+    z-index: 1;
   }
 }
 
@@ -154,3 +155,85 @@ ul.boardlist li {
 @each $wedge in $wedges {
   @include card-colors($wedge);
 }
+
+.card-type-artifact[class*='card-color-#{cost($artifact)}-cost'] a {
+  &:before {
+    background: background($artifact);
+  }
+  &:after {
+    background: border($artifact);
+  }
+}
+
+[class*='card-color-#{cost($eldrazi)}-cost']:not(.card-type-artifact) a {
+  &:before {
+    background: background($eldrazi);
+  }
+  &:after {
+    background: border($eldrazi);
+  }
+}
+
+.card-type-land a {
+  &:before {
+    background: background($land);
+  }
+  &:after {
+    background: border($land);
+  }
+}
+
+@function transformSelectors($transformers) {
+    $result: ;
+    
+    @if type-of($transformers) != list {
+        $transformers: ($transfromers,);
+    }
+    
+    @each $transformer in $transformers {
+        $result: $result + '[data-name="' + $transformer + '"], ';
+    }
+    
+    @return $result;
+}
+
+@mixin transform($transformers, $frontIcon, $backIcon) {
+  #{transformSelectors($transformers)} {
+    visibility: visible !important;
+    content: $frontIcon;
+    height: 22px;
+    border-color: transparent !important;
+    background: white !important;
+    margin-bottom: -7px;
+    margin-left: -5px;
+    padding: 0px !important;
+    border-radius: 50%;
+    &:hover {
+      content: $backIcon !important;
+    }
+  }
+}
+
+$ixalanTransformers: ("Temple of Aclazotz"), ("Sanctum of the Sun"), ("Conqueror's Foothold"), ("Lost Vale"), ("Gold-Forge Garrison"), ("Itlimoc, Cradle of the Sun"), ("Winged Temple of Orazca"), ("Atzal, Cave of Eternity"), ("Adanto, the First Fort"), ("Metzali, Tower of Triumph"), ("Primal Wellspring"), ("Tomb of the Dusk Rose"), ("Azcanta, the Sunken Ruin"), ("Vault of Catlacan"), ("Spires of Orazca"), ("Treasure Cove"), ("Spitfire Bastion");
+$ixalanTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg');
+$ixalanTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg');
+
+@include transform($ixalanTransformers, $ixalanTransformFront, $ixalanTransformBack);
+
+$sparkTransformers: ("Chandra, Roaring Flame"), ("Jace, Telepath Unbound"), ("Gideon, Battle-Forged"), ("Liliana, Defiant Necromancer"), ("Nicol Bolas, the Arisen"), ("Nissa, Sage Animist");
+$sparkTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/41/Dfc-spark.svg');
+$sparkTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/5/59/Dfc-ignite.svg');
+
+@include transform($sparkTransformers, $sparkTransformFront, $sparkTransformBack);
+
+$eldraziTransformers: ("Conduit of Emrakul"), ("Aurora of Emrakul"), ("Voracious Reader"), ("Final Iteration"), ("Extricator of Flesh"), ("Grisly Anglerfish"), ("Sinuous Predator"), ("It That Rides as One"), ("Howling Chorus"), ("Erupting Dreadwolf"), ("Fibrous Entangler"), ("Ulvenwald Abomination"), ("Dronepack Kindred"), ("Abolisher of Bloodlines");
+$eldraziTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/f/fb/Dfc-fullmoon.svg');
+$eldraziTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/49/Dfc-emrakul.svg');
+
+@include transform($eldraziTransformers, $eldraziTransformFront, $eldraziTransformBack);
+
+$moonTransformers: ("Perfected Form"), ("Infectious Curse"), ("Werewolf Ransacker"), ("Avacyn, the Purifier"), ("Arlinn, Embraced by the Moon"), ("Ancient of the Equinox"), ("Lunarch Inquisitors"), ("Lord of Lineage"), ("Neck Breaker"), ("Chalice of Death"), ("Markov's Servant"), ("Homicidal Brute"), ("Unholy Fiend"), ("Branded Howler"), ("Bearer of Overwhelming Truths"), ("Nightfall Predator"), ("Insectile Aberration"), ("Krallenhorde Howler"), ("Withengar Unbound"), ("Insidious Mist"), ("Garruk, the Veil-Cursed"), ("Gatstaf Ravagers"), ("Gatstaf Howler"), ("Vildin-Pack Alpha"), ("Krallenhorde Wantons"), ("Westvale Cult Leader"), ("Bane of Hanweir"), ("Scrounged Scythe"), ("Heir to the Night"), ("Lone Wolf of the Natterknolls"), ("Hinterland Scourge"), ("Timber Shredder"), ("Ravager of the Fells"), ("Wildblood Pack"), ("Flameheart Werewolf"), ("Demon-Possessed Witch"), ("Terror of Kruin Pass"), ("Silverpelt Werewolf"), ("Lambholt Butcher"), ("Unhallowed Cathar"), ("Ludevic's Abomination"), ("Howlpack Alpha"), ("Tovolar's Magehunter"), ("Ashmouth Blade"), ("Wayward Disciple"), ("Archdemon of Greed"), ("Merciless Predator"), ("Werewolf of Ancient Hunger"), ("Moonscarred Werewolf"), ("Stalking Vampire"), ("Skin Shedder"), ("One of the Pack"), ("Ghastly Haunting"), ("Persistent Nightmare"), ("Awoken Horror"), ("Stonewing Antagonizer"), ("Thraben Militia"), ("Rampaging Werewolf"), ("Incited Rabble"), ("Ulrich, Uncontested Alpha"), ("Ulvenwald Primordials"), ("Unimpeded Trespasser"), ("Ironfang"), ("Moonrise Intruder"), ("Howlpack of Estwald"), ("Ormendahl, Profane Prince"), ("Krallenhorde Killer");
+$moonTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg');
+$moonTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg');
+
+@include transform($moonTransformers, $moonTransformFront, $moonTransformBack);
