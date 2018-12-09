@@ -14,6 +14,18 @@ $guilds: ($white $blue), ($white $black), ($blue $black), ($blue $red), ($black 
 $shards: ($white $blue $black), ($blue, $black, $red), ($black, $red, $green), ($red, $green, $white), ($green, $white, $blue);
 $wedges: ($white $black $green), ($blue $red $white), ($black $green $blue), ($red $white $black), ($green $blue $red);
 
+@function cost($color) {
+  @return map-get($color, 'cost');
+}
+
+@function background($color) {
+  @return map-get($color, 'background');
+}
+
+@function border($color) {
+  @return map-get($color, 'border');
+}
+
 @function remove($list, $value) {
   $result: ();
   
@@ -35,7 +47,21 @@ $wedges: ($white $black $green), ($blue $red $white), ($black $green $blue), ($r
 }
 
 ul.boardlist li {
-  margin: 1px;
+  margin: 4px;
+}
+
+body {
+  line-height: initial !important;
+}
+
+a.qty {
+  font-family: 'beleren bold';
+  background: black;
+  padding: 0.2rem 0.6rem;
+  border: 2px solid white;
+  border-radius: 50vh 0 0 50vh;
+  padding-right: 15px;
+  margin-right: -15px;
 }
 
 .card a {
@@ -54,6 +80,7 @@ ul.boardlist li {
     left: 0px; right: 0px;
     border-radius: 50vh;
     z-index: 2;
+    background: background($gold);
   }
   
   &:after {
@@ -64,23 +91,16 @@ ul.boardlist li {
     left: -2px; right: -2px;
     border-radius: 50vh;
     z-index: 1;
+    background: border($gold);
   }
-}
-
-@function cost($color) {
-  @return map-get($color, 'cost');
-}
-
-@function background($color) {
-  @return map-get($color, 'background');
-}
-
-@function border($color) {
-  @return map-get($color, 'border');
 }
 
 @function spells($include, $exclude) {
   $spells: "";
+  
+  @if type-of($include) != list {
+    $include: ($include,);
+  }
   
   @each $color in $include {
     $spells: $spells + ".card-color-" + #{cost($color)};
@@ -97,9 +117,15 @@ ul.boardlist li {
 
 @function lands($include, $exclude) {
   $lands: ".card-type-land";
-  
-  @each $color in $include {
-    $lands: $lands + '[class*="card-mana-' + #{cost($color)} + '"]';
+
+  @if $include {
+    @if type-of($include) != list {
+      $include: ($include,);
+    }
+    
+    @each $color in $include {
+      $lands: $lands + '[class*="card-mana-' + #{cost($color)} + '"]';
+    }
   }
   
   @if $exclude {
@@ -111,49 +137,30 @@ ul.boardlist li {
   @return unquote($lands);
 }
 
-@mixin card-colors($include, $exclude: false) {
-  @if type-of($include) != list {
-    $include: ($include,);
-  }
-  
-  $leftgradient: border(nth($include, 1));
-  $rightgradient: border(nth($include, length($include)));
-  
-  $background: null;
-  $border: null;
-  
-  @if      length($include) == 1 { $background: background(nth($include, 1)) }
-  @else if length($include)  > 1 { $background: background($gold) }
-
-  @if      length($include) == 1 { $border: $leftgradient } 
-  @else if length($include) == 2 { $border: linear-gradient(to right, $leftgradient 40%, $rightgradient 60%) }
-  @else if length($include)  > 2 { $border: border($gold) }
-  
-  #{spells($include, $exclude)} a,
-  #{lands($include, $exclude)} a {
-    &:before {
-      background: $background;
+@mixin borders($includes) {
+  @each $include in $includes {
+    @if type-of($include) != list {
+      $include: ($include,);
     }
-    &:after {
-      background: $border;
+    
+    $excludes: remove($colors, $include);
+  
+    #{spells($include, $excludes)} a:after,
+    #{lands($include, $excludes)} a:after {
+      @if      length($include) == 1 { background: border(nth($include, 1)) !important } 
+      @else if length($include) == 2 { background: linear-gradient(to right, border(nth($include, 1)) 40%, border(nth($include, 2)) 60%) !important }
     }
   }
 }
+
+@include borders($colors);
+@include borders($guilds);
 
 @each $color in $colors {
-  @include card-colors($color, remove($colors, $color));
-}
-
-@each $guild in $guilds {
-  @include card-colors($guild, remove($colors, $guild));
-}
-
-@each $shard in $shards {
-  @include card-colors($shard);
-}
-
-@each $wedge in $wedges {
-  @include card-colors($wedge);
+  #{spells($color, remove($colors, $color))} a:before,
+  #{lands($color, remove($colors, $color))} a:before {
+    background: background($color) !important;
+  }
 }
 
 .card-type-artifact[class*='card-color-#{cost($artifact)}-cost'] a {
@@ -161,7 +168,7 @@ ul.boardlist li {
     background: background($artifact);
   }
   &:after {
-    background: border($artifact);
+    background: border($artifact) !important;
   }
 }
 
@@ -170,21 +177,21 @@ ul.boardlist li {
     background: background($eldrazi);
   }
   &:after {
-    background: border($eldrazi);
+    background: border($eldrazi) !important;
   }
 }
 
-.card-type-land a {
+.card-type-land#{lands(false, $colors)} a {
   &:before {
     background: background($land);
   }
   &:after {
-    background: border($land);
+    background: border($land) !important;
   }
 }
 
 @function transformSelectors($transformers) {
-    $result: ;
+    $result: "";
     
     @if type-of($transformers) != list {
         $transformers: ($transfromers,);
@@ -201,7 +208,7 @@ ul.boardlist li {
   #{transformSelectors($transformers)} {
     visibility: visible !important;
     content: $frontIcon;
-    height: 22px;
+    height: 20px;
     border-color: transparent !important;
     background: white !important;
     margin-bottom: -7px;
