@@ -1,212 +1,374 @@
 ul.boardlist li {
-  margin: 5px;
-}
-
-a.qty {
-  visibility: hidden;
-}
-
-a.qty::after {
-  visibility: visible !important;
-  display: inline-block;
-  width: 16px;
-  color: #1c1718 !important;
-  font-family: Beleren;
-  background: #dde6eb;
-  border-radius: 50vh;
-  content: attr(data-qty) !important;
+  margin: 1px;
 }
 
 .card a {
-  border-radius: 50vh;
-  border-width: 2px;
-  border-style: solid;
-  padding: 0.2rem 0.4rem;
-  color: #1c1718 !important;
-  font-family: Beleren;
-}
-
-.popover {
-  background: black !important;
-  border: 1px solid black !important;
-}
-
-.popover.right .arrow::after {
-  border-right-color: black !important;
-}
-
-.card-type-land[class*="card-mana-red"] a,
-[class*="card-color-red-cost"] a {
-  background: #f5d5c5;
-  border-color: #f94e29;
-}
-
-.card-type-land[class*="card-mana-green"] a,
-[class*="card-color-green-cost"] a {
-  background: #c2d5cc;
-  border-color: #038542;
-}
-
-.card-type-land[class*="card-mana-black"] a,
-[class*="card-color-black-cost"] a {
-  background: #aaa09f;
-  border-color: #2e2d2b;
-}
-
-.card-type-artifact.card-type-creature[class*="card-color-colorless-cost"] a,
-.card-type-artifact[class*="card-color-colorless-cost"] a {
-  background: #dde6eb !important;
-  border-color: #2e2d2b;
-}
-
-.card-type-creature[class*="card-color-colorless-cost"] a {
-  background: #b8b0a8;
-  border-color: #2e2d2b;
-}
-
-.card-type-land a {
-  background: #d8d6d3;
-  border-color: #2e2d2b;
-}
-
-.card-mana-green.card-mana-red.card-mana-black a,
-.card-type-creature[class*="card-color-gold-cost"] a {
-  background: #d5bc7d;
-  border-color: #fae066;
-}
-
-.card-color-black.card-color-green:not(.card-color-red) a,
-.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a,
-.card-color-green.card-color-red:not(.card-color-black) a,
-.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a,
-.card-color-red.card-color-black:not(.card-color-green) a,
-.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a {
+  visibility: hidden;
   position: relative;
-  background-clip: padding-box !important;
-  border: 2px solid transparent !important;
+  padding: 0.2rem 0.4rem;
+  color: #1f1e1f;
+  font-family: 'beleren bold';
+}
+
+.card a:before {
+  visibility: visible;
+  position: absolute;
+  content: attr(data-name);
+  padding-left: 3px;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 50vh;
+  z-index: 2;
+}
+
+.card a:after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  border-radius: 50vh;
   z-index: 1;
 }
 
-
-.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a::before,
-.card-color-black.card-color-green:not(.card-color-red) a::before {
-  position: absolute;
-  content: " " attr(data-name);
-  top: 0px; bottom: 0px;
-  left: 0px; right: 0px;
-  background: #d5bc7d;
-  border-radius: 50vh;
-  z-index: 3;
+.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #dedede;
 }
 
-.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-red"]) a::after,
-.card-color-black.card-color-green:not(.card-color-red) a::after {
-  position: absolute;
-  content: "";
-  top: -2px; bottom: -2px;
-  left: -2px; right: -2px;
-  background: linear-gradient(to right, #494547 40%,#038542 60%);
-  border-radius: 50vh;
-  z-index: 2;
+.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: #f7f8ee;
 }
 
-.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a::before,
-.card-color-green.card-color-red:not(.card-color-black) a::before {
-  position: absolute;
-  content: " " attr(data-name);
-  top: 0px; bottom: 0px;
-  left: 0px; right: 0px;
-  background: #d5bc7d;
-  border-radius: 50vh;
-  z-index: 3;
+.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #b2cde2;
 }
 
-.card-type-land[class*="card-mana-green"][class*="card-mana-red"]:not([class*="card-mana-black"]) a::after,
-.card-color-green.card-color-red:not(.card-color-black) a::after {
-  position: absolute;
-  content: "";
-  top: -2px; bottom: -2px;
-  left: -2px; right: -2px;
-  background: linear-gradient(to right, #f94e29 40%,#038542 60%);
-  border-radius: 50vh;
-  z-index: 2;
+.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: #3459ae;
 }
 
-.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a::before,
-.card-color-red.card-color-black:not(.card-color-green) a::before {
-  position: absolute;
-  content: " " attr(data-name);
-  top: 0px; bottom: 0px;
-  left: 0px; right: 0px;
-  background: #d5bc7d;
-  border-radius: 50vh;
-  z-index: 3;
+.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #c4bfba;
 }
 
-.card-type-land[class*="card-mana-red"][class*="card-mana-black"]:not([class*="card-mana-green"]) a::after,
-.card-color-red.card-color-black:not(.card-color-green) a::after {
-  position: absolute;
-  content: "";
-  top: -2px; bottom: -2px;
-  left: -2px; right: -2px;
-  background: linear-gradient(to right, #494547 40%,#f94e29 60%);
-  border-radius: 50vh;
-  z-index: 2;
+.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: #1c1512;
 }
 
-[src$="foil-icon.jpg"] {
-  width: 20px;
-  height: 20px;
-  border-radius: 50vh;
+.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:before {
+  background: #fabe99;
 }
 
-#boardContainer-main-journey-to-eternity {
-  margin-top: -5px;
+.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:after {
+  background: #f5081f;
 }
 
-[data-name="Atzal, Cave of Eternity"] {
-  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg') !important;
-  height: 30px;
-  border-color: transparent !important;
-  background: transparent !important;
-  margin-bottom: -10px;
-  margin-left: -5px;
-  padding: 0px !important;
+.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a:before,
+.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:before {
+  background: #becdc0;
 }
 
-[data-name="Atzal, Cave of Eternity"]:hover {
-  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg') !important;
-  height: 30px;
+.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a:after,
+.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:after {
+  background: #3e7632;
+}
+
+.card-color-white.card-color-blue:not(.card-color-black):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-white.card-color-blue:not(.card-color-black):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #f7f8ee 40%, #3459ae 60%);
+}
+
+.card-color-white.card-color-black:not(.card-color-blue):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-white.card-color-black:not(.card-color-blue):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #f7f8ee 40%, #1c1512 60%);
+}
+
+.card-color-blue.card-color-black:not(.card-color-white):not(.card-color-red):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-blue.card-color-black:not(.card-color-white):not(.card-color-red):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #3459ae 40%, #1c1512 60%);
+}
+
+.card-color-blue.card-color-red:not(.card-color-white):not(.card-color-black):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-blue.card-color-red:not(.card-color-white):not(.card-color-black):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #3459ae 40%, #f5081f 60%);
+}
+
+.card-color-black.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-red) a:before,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-black.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-red) a:after,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a:after {
+  background: linear-gradient(to right, #1c1512 40%, #3e7632 60%);
+}
+
+.card-color-black.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-black.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #1c1512 40%, #f5081f 60%);
+}
+
+.card-color-red.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-green) a:before,
+.card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-red.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-green) a:after,
+.card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:after {
+  background: linear-gradient(to right, #f5081f 40%, #f7f8ee 60%);
+}
+
+.card-color-red.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black) a:before,
+.card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-red.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black) a:after,
+.card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a:after {
+  background: linear-gradient(to right, #f5081f 40%, #3e7632 60%);
+}
+
+.card-color-green.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red) a:before,
+.card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-green.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red) a:after,
+.card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:after {
+  background: linear-gradient(to right, #3e7632 40%, #f7f8ee 60%);
+}
+
+.card-color-green.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red) a:before,
+.card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:before {
+  background: #d9c174;
+}
+
+.card-color-green.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red) a:after,
+.card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:after {
+  background: linear-gradient(to right, #3e7632 40%, #3459ae 60%);
+}
+
+.card-color-white.card-color-blue.card-color-black a:before,
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"][class*="card-mana-black"] a:before {
+  background: #d9c174;
+}
+
+.card-color-white.card-color-blue.card-color-black a:after,
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"][class*="card-mana-black"] a:after {
+  background: #efe777;
+}
+
+.card-color-blue.card-color-black.card-color-red a:before,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-black"][class*="card-mana-red"] a:before {
+  background: #d9c174;
+}
+
+.card-color-blue.card-color-black.card-color-red a:after,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-black"][class*="card-mana-red"] a:after {
+  background: #efe777;
+}
+
+.card-color-black.card-color-red.card-color-green a:before,
+.card-type-land[class*="card-mana-black"][class*="card-mana-red"][class*="card-mana-green"] a:before {
+  background: #d9c174;
+}
+
+.card-color-black.card-color-red.card-color-green a:after,
+.card-type-land[class*="card-mana-black"][class*="card-mana-red"][class*="card-mana-green"] a:after {
+  background: #efe777;
+}
+
+.card-color-red.card-color-green.card-color-white a:before,
+.card-type-land[class*="card-mana-red"][class*="card-mana-green"][class*="card-mana-white"] a:before {
+  background: #d9c174;
+}
+
+.card-color-red.card-color-green.card-color-white a:after,
+.card-type-land[class*="card-mana-red"][class*="card-mana-green"][class*="card-mana-white"] a:after {
+  background: #efe777;
+}
+
+.card-color-green.card-color-white.card-color-blue a:before,
+.card-type-land[class*="card-mana-green"][class*="card-mana-white"][class*="card-mana-blue"] a:before {
+  background: #d9c174;
+}
+
+.card-color-green.card-color-white.card-color-blue a:after,
+.card-type-land[class*="card-mana-green"][class*="card-mana-white"][class*="card-mana-blue"] a:after {
+  background: #efe777;
+}
+
+.card-color-white.card-color-black.card-color-green a:before,
+.card-type-land[class*="card-mana-white"][class*="card-mana-black"][class*="card-mana-green"] a:before {
+  background: #d9c174;
+}
+
+.card-color-white.card-color-black.card-color-green a:after,
+.card-type-land[class*="card-mana-white"][class*="card-mana-black"][class*="card-mana-green"] a:after {
+  background: #efe777;
+}
+
+.card-color-blue.card-color-red.card-color-white a:before,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-red"][class*="card-mana-white"] a:before {
+  background: #d9c174;
+}
+
+.card-color-blue.card-color-red.card-color-white a:after,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-red"][class*="card-mana-white"] a:after {
+  background: #efe777;
+}
+
+.card-color-black.card-color-green.card-color-blue a:before,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"][class*="card-mana-blue"] a:before {
+  background: #d9c174;
+}
+
+.card-color-black.card-color-green.card-color-blue a:after,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"][class*="card-mana-blue"] a:after {
+  background: #efe777;
+}
+
+.card-color-red.card-color-white.card-color-black a:before,
+.card-type-land[class*="card-mana-red"][class*="card-mana-white"][class*="card-mana-black"] a:before {
+  background: #d9c174;
+}
+
+.card-color-red.card-color-white.card-color-black a:after,
+.card-type-land[class*="card-mana-red"][class*="card-mana-white"][class*="card-mana-black"] a:after {
+  background: #efe777;
+}
+
+.card-color-green.card-color-blue.card-color-red a:before,
+.card-type-land[class*="card-mana-green"][class*="card-mana-blue"][class*="card-mana-red"] a:before {
+  background: #d9c174;
+}
+
+.card-color-green.card-color-blue.card-color-red a:after,
+.card-type-land[class*="card-mana-green"][class*="card-mana-blue"][class*="card-mana-red"] a:after {
+  background: #efe777;
+}
+
+.card-type-artifact[class*='card-color-colorless-cost'] a:before {
+  background: #d5dde1;
+}
+
+.card-type-artifact[class*='card-color-colorless-cost'] a:after {
+  background: #e4e5e5;
+}
+
+[class*='card-color-colorless-cost']:not(.card-type-artifact) a:before {
+  background: #dad5d1;
+}
+
+[class*='card-color-colorless-cost']:not(.card-type-artifact) a:after {
+  background: #e5e7e9;
+}
+
+.card-type-land a:before {
+  background: #cdc2bf;
+}
+
+.card-type-land a:after {
+  background: #988b7e;
+}
+
+[data-name="Temple of Aclazotz"], [data-name="Sanctum of the Sun"], [data-name="Conqueror's Foothold"], [data-name="Lost Vale"], [data-name="Gold-Forge Garrison"], [data-name="Itlimoc, Cradle of the Sun"], [data-name="Winged Temple of Orazca"], [data-name="Atzal, Cave of Eternity"], [data-name="Adanto, the First Fort"], [data-name="Metzali, Tower of Triumph"], [data-name="Primal Wellspring"], [data-name="Tomb of the Dusk Rose"], [data-name="Azcanta, the Sunken Ruin"], [data-name="Vault of Catlacan"], [data-name="Spires of Orazca"], [data-name="Treasure Cove"], [data-name="Spitfire Bastion"] {
+  visibility: visible !important;
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg");
+  height: 22px;
   border-color: transparent !important;
   background: white !important;
-  margin-bottom: -10px;
+  margin-bottom: -7px;
   margin-left: -5px;
-  background-clip: content-box !important;
   padding: 0px !important;
+  border-radius: 50%;
 }
 
-#boardContainer-main-journey-to-eternity {
-  margin-top: -5px;
+[data-name="Temple of Aclazotz"]:hover, [data-name="Sanctum of the Sun"]:hover, [data-name="Conqueror's Foothold"]:hover, [data-name="Lost Vale"]:hover, [data-name="Gold-Forge Garrison"]:hover, [data-name="Itlimoc, Cradle of the Sun"]:hover, [data-name="Winged Temple of Orazca"]:hover, [data-name="Atzal, Cave of Eternity"]:hover, [data-name="Adanto, the First Fort"]:hover, [data-name="Metzali, Tower of Triumph"]:hover, [data-name="Primal Wellspring"]:hover, [data-name="Tomb of the Dusk Rose"]:hover, [data-name="Azcanta, the Sunken Ruin"]:hover, [data-name="Vault of Catlacan"]:hover, [data-name="Spires of Orazca"]:hover, [data-name="Treasure Cove"]:hover, [data-name="Spitfire Bastion"]:hover {
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg") !important;
 }
 
-[data-name="Arlinn, Embraced by the Moon"] {
-  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg') !important;
-  height: 30px;
+[data-name="Chandra, Roaring Flame"], [data-name="Jace, Telepath Unbound"], [data-name="Gideon, Battle-Forged"], [data-name="Liliana, Defiant Necromancer"], [data-name="Nicol Bolas, the Arisen"], [data-name="Nissa, Sage Animist"] {
+  visibility: visible !important;
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/41/Dfc-spark.svg");
+  height: 22px;
   border-color: transparent !important;
   background: white !important;
-  background-clip: content-box !important;
-  margin-bottom: -10px;
+  margin-bottom: -7px;
   margin-left: -5px;
   padding: 0px !important;
+  border-radius: 50%;
 }
 
-[data-name="Arlinn, Embraced by the Moon"]:hover {
-  content: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg') !important;
-  height: 30px;
+[data-name="Chandra, Roaring Flame"]:hover, [data-name="Jace, Telepath Unbound"]:hover, [data-name="Gideon, Battle-Forged"]:hover, [data-name="Liliana, Defiant Necromancer"]:hover, [data-name="Nicol Bolas, the Arisen"]:hover, [data-name="Nissa, Sage Animist"]:hover {
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/5/59/Dfc-ignite.svg") !important;
+}
+
+[data-name="Conduit of Emrakul"], [data-name="Aurora of Emrakul"], [data-name="Voracious Reader"], [data-name="Final Iteration"], [data-name="Extricator of Flesh"], [data-name="Grisly Anglerfish"], [data-name="Sinuous Predator"], [data-name="It That Rides as One"], [data-name="Howling Chorus"], [data-name="Erupting Dreadwolf"], [data-name="Fibrous Entangler"], [data-name="Ulvenwald Abomination"], [data-name="Dronepack Kindred"], [data-name="Abolisher of Bloodlines"] {
+  visibility: visible !important;
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/f/fb/Dfc-fullmoon.svg");
+  height: 22px;
   border-color: transparent !important;
   background: white !important;
-  background-clip: content-box !important;
-  margin-bottom: -10px;
+  margin-bottom: -7px;
   margin-left: -5px;
   padding: 0px !important;
+  border-radius: 50%;
+}
+
+[data-name="Conduit of Emrakul"]:hover, [data-name="Aurora of Emrakul"]:hover, [data-name="Voracious Reader"]:hover, [data-name="Final Iteration"]:hover, [data-name="Extricator of Flesh"]:hover, [data-name="Grisly Anglerfish"]:hover, [data-name="Sinuous Predator"]:hover, [data-name="It That Rides as One"]:hover, [data-name="Howling Chorus"]:hover, [data-name="Erupting Dreadwolf"]:hover, [data-name="Fibrous Entangler"]:hover, [data-name="Ulvenwald Abomination"]:hover, [data-name="Dronepack Kindred"]:hover, [data-name="Abolisher of Bloodlines"]:hover {
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/49/Dfc-emrakul.svg") !important;
+}
+
+[data-name="Perfected Form"], [data-name="Infectious Curse"], [data-name="Werewolf Ransacker"], [data-name="Avacyn, the Purifier"], [data-name="Arlinn, Embraced by the Moon"], [data-name="Ancient of the Equinox"], [data-name="Lunarch Inquisitors"], [data-name="Lord of Lineage"], [data-name="Neck Breaker"], [data-name="Chalice of Death"], [data-name="Markov's Servant"], [data-name="Homicidal Brute"], [data-name="Unholy Fiend"], [data-name="Branded Howler"], [data-name="Bearer of Overwhelming Truths"], [data-name="Nightfall Predator"], [data-name="Insectile Aberration"], [data-name="Krallenhorde Howler"], [data-name="Withengar Unbound"], [data-name="Insidious Mist"], [data-name="Garruk, the Veil-Cursed"], [data-name="Gatstaf Ravagers"], [data-name="Gatstaf Howler"], [data-name="Vildin-Pack Alpha"], [data-name="Krallenhorde Wantons"], [data-name="Westvale Cult Leader"], [data-name="Bane of Hanweir"], [data-name="Scrounged Scythe"], [data-name="Heir to the Night"], [data-name="Lone Wolf of the Natterknolls"], [data-name="Hinterland Scourge"], [data-name="Timber Shredder"], [data-name="Ravager of the Fells"], [data-name="Wildblood Pack"], [data-name="Flameheart Werewolf"], [data-name="Demon-Possessed Witch"], [data-name="Terror of Kruin Pass"], [data-name="Silverpelt Werewolf"], [data-name="Lambholt Butcher"], [data-name="Unhallowed Cathar"], [data-name="Ludevic's Abomination"], [data-name="Howlpack Alpha"], [data-name="Tovolar's Magehunter"], [data-name="Ashmouth Blade"], [data-name="Wayward Disciple"], [data-name="Archdemon of Greed"], [data-name="Merciless Predator"], [data-name="Werewolf of Ancient Hunger"], [data-name="Moonscarred Werewolf"], [data-name="Stalking Vampire"], [data-name="Skin Shedder"], [data-name="One of the Pack"], [data-name="Ghastly Haunting"], [data-name="Persistent Nightmare"], [data-name="Awoken Horror"], [data-name="Stonewing Antagonizer"], [data-name="Thraben Militia"], [data-name="Rampaging Werewolf"], [data-name="Incited Rabble"], [data-name="Ulrich, Uncontested Alpha"], [data-name="Ulvenwald Primordials"], [data-name="Unimpeded Trespasser"], [data-name="Ironfang"], [data-name="Moonrise Intruder"], [data-name="Howlpack of Estwald"], [data-name="Ormendahl, Profane Prince"], [data-name="Krallenhorde Killer"] {
+  visibility: visible !important;
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg");
+  height: 22px;
+  border-color: transparent !important;
+  background: white !important;
+  margin-bottom: -7px;
+  margin-left: -5px;
+  padding: 0px !important;
+  border-radius: 50%;
+}
+
+[data-name="Perfected Form"]:hover, [data-name="Infectious Curse"]:hover, [data-name="Werewolf Ransacker"]:hover, [data-name="Avacyn, the Purifier"]:hover, [data-name="Arlinn, Embraced by the Moon"]:hover, [data-name="Ancient of the Equinox"]:hover, [data-name="Lunarch Inquisitors"]:hover, [data-name="Lord of Lineage"]:hover, [data-name="Neck Breaker"]:hover, [data-name="Chalice of Death"]:hover, [data-name="Markov's Servant"]:hover, [data-name="Homicidal Brute"]:hover, [data-name="Unholy Fiend"]:hover, [data-name="Branded Howler"]:hover, [data-name="Bearer of Overwhelming Truths"]:hover, [data-name="Nightfall Predator"]:hover, [data-name="Insectile Aberration"]:hover, [data-name="Krallenhorde Howler"]:hover, [data-name="Withengar Unbound"]:hover, [data-name="Insidious Mist"]:hover, [data-name="Garruk, the Veil-Cursed"]:hover, [data-name="Gatstaf Ravagers"]:hover, [data-name="Gatstaf Howler"]:hover, [data-name="Vildin-Pack Alpha"]:hover, [data-name="Krallenhorde Wantons"]:hover, [data-name="Westvale Cult Leader"]:hover, [data-name="Bane of Hanweir"]:hover, [data-name="Scrounged Scythe"]:hover, [data-name="Heir to the Night"]:hover, [data-name="Lone Wolf of the Natterknolls"]:hover, [data-name="Hinterland Scourge"]:hover, [data-name="Timber Shredder"]:hover, [data-name="Ravager of the Fells"]:hover, [data-name="Wildblood Pack"]:hover, [data-name="Flameheart Werewolf"]:hover, [data-name="Demon-Possessed Witch"]:hover, [data-name="Terror of Kruin Pass"]:hover, [data-name="Silverpelt Werewolf"]:hover, [data-name="Lambholt Butcher"]:hover, [data-name="Unhallowed Cathar"]:hover, [data-name="Ludevic's Abomination"]:hover, [data-name="Howlpack Alpha"]:hover, [data-name="Tovolar's Magehunter"]:hover, [data-name="Ashmouth Blade"]:hover, [data-name="Wayward Disciple"]:hover, [data-name="Archdemon of Greed"]:hover, [data-name="Merciless Predator"]:hover, [data-name="Werewolf of Ancient Hunger"]:hover, [data-name="Moonscarred Werewolf"]:hover, [data-name="Stalking Vampire"]:hover, [data-name="Skin Shedder"]:hover, [data-name="One of the Pack"]:hover, [data-name="Ghastly Haunting"]:hover, [data-name="Persistent Nightmare"]:hover, [data-name="Awoken Horror"]:hover, [data-name="Stonewing Antagonizer"]:hover, [data-name="Thraben Militia"]:hover, [data-name="Rampaging Werewolf"]:hover, [data-name="Incited Rabble"]:hover, [data-name="Ulrich, Uncontested Alpha"]:hover, [data-name="Ulvenwald Primordials"]:hover, [data-name="Unimpeded Trespasser"]:hover, [data-name="Ironfang"]:hover, [data-name="Moonrise Intruder"]:hover, [data-name="Howlpack of Estwald"]:hover, [data-name="Ormendahl, Profane Prince"]:hover, [data-name="Krallenhorde Killer"]:hover {
+  content: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg") !important;
 }
