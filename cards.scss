@@ -64,6 +64,11 @@ a.qty {
   margin-right: -15px;
 }
 
+.illegal-card a.qty {
+  color: red !important;
+  border-color: red !important;
+}
+
 .card a {
   visibility: hidden;                
   position: relative;
