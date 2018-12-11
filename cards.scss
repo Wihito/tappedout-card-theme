@@ -61,7 +61,7 @@ a.qty {
   border: 2px solid white;
   border-radius: 50vh 0 0 50vh;
   padding-right: 15px;
-  margin-right: -15px;
+  margin-right: -17px;
 }
 
 .illegal-card a.qty {
@@ -69,35 +69,44 @@ a.qty {
   border-color: red !important;
 }
 
-.card a {
-  visibility: hidden;                
+.card a {            
   position: relative;
-  padding: 0.2rem 0.4rem;
+  padding: 4px 5px;
   color: #1f1e1f;
   font-family: 'beleren bold';
+  background: border($gold);
+  border-radius: 50vh;
   
   &:before {
-    visibility: visible;
     position: absolute;
     content: attr(data-name);
     padding-left: 3px;
+    top: 2px; bottom: 2px;
+    left: 2px; right: 2px;
+    border-radius: 50vh;
+    z-index: 1;
+    background: background($gold);
+  }
+  
+  &.foil-card:after {
+    position: absolute;
+    content: "";
     top: 0px; bottom: 0px;
     left: 0px; right: 0px;
     border-radius: 50vh;
     z-index: 2;
-    background: background($gold);
+    background: url('https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-faded.png') repeat 0 0;
+    -webkit-animation: slide 10s linear infinite;
   }
-  
-  &:after {
-    visibility: visible;
-    position: absolute;
-    content: "";
-    top: -2px; bottom: -2px;
-    left: -2px; right: -2px;
-    border-radius: 50vh;
-    z-index: 1;
-    background: border($gold);
-  }
+}
+
+@-webkit-keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: -400px 0; }
+}
+
+[src*="foil-icon.jpg"] {
+  display: none;
 }
 
 @function spells($include, $exclude) {
@@ -150,8 +159,8 @@ a.qty {
     
     $excludes: remove($colors, $include);
   
-    #{spells($include, $excludes)} a:after,
-    #{lands($include, $excludes)} a:after {
+    #{spells($include, $excludes)} a,
+    #{lands($include, $excludes)} a {
       @if      length($include) == 1 { background: border(nth($include, 1)) !important } 
       @else if length($include) == 2 { background: linear-gradient(to right, border(nth($include, 1)) 40%, border(nth($include, 2)) 60%) !important }
     }
@@ -169,29 +178,26 @@ a.qty {
 }
 
 .card-type-artifact[class*='card-color-#{cost($artifact)}-cost'] a {
+  background: border($artifact) !important;
+  
   &:before {
     background: background($artifact);
-  }
-  &:after {
-    background: border($artifact) !important;
   }
 }
 
 [class*='card-color-#{cost($eldrazi)}-cost']:not(.card-type-artifact) a {
+  background: border($eldrazi) !important;
+  
   &:before {
     background: background($eldrazi);
-  }
-  &:after {
-    background: border($eldrazi) !important;
   }
 }
 
 .card-type-land#{lands(false, $colors)} a {
+  background: border($land) !important;
+  
   &:before {
     background: background($land);
-  }
-  &:after {
-    background: border($land) !important;
   }
 }
 
