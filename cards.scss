@@ -1,53 +1,50 @@
-$white: (cost: 'white', background: #dedede, border: #f7f8ee);
-$blue: (cost: 'blue', background: #b2cde2, border: #3459ae);
-$black: (cost: 'black', background: #c4bfba, border: #1c1512);
-$red: (cost: 'red', background: #fabe99, border: #f5081f);
-$green: (cost: 'green', background: #becdc0, border: #3e7632);
+$white: (cost: "white", background: #dedede, border: #f7f8ee);
+$blue: (cost: "blue", background: #b2cde2, border: #3459ae);
+$black: (cost: "black", background: #c4bfba, border: #1c1512);
+$red: (cost: "red", background: #fabe99, border: #f5081f);
+$green: (cost: "green", background: #becdc0, border: #3e7632);
 
-$gold: (cost: 'gold', background: #d9c174, border: #efe777);
-$artifact: (cost: 'colorless', background: #d5dde1, border: #e4e5e5);
-$eldrazi: (cost: 'colorless', background: #dad5d1, border: #e5e7e9);
+$gold: (cost: "gold", background: #d9c174, border: #efe777);
+$artifact: (cost: "colorless", background: #d5dde1, border: #e4e5e5);
+$eldrazi: (cost: "colorless", background: #dad5d1, border: #e5e7e9);
 $land: (background: #cdc2bf, border: #988b7e);
 
 $colors: $white $blue $black $red $green;
-$guilds: ($white $blue), ($white $black), ($blue $black), ($blue $red), ($black $green), ($black $red), ($red $white), ($red $green), ($green $white), ($green $blue);
-$shards: ($white $blue $black), ($blue, $black, $red), ($black, $red, $green), ($red, $green, $white), ($green, $white, $blue);
-$wedges: ($white $black $green), ($blue $red $white), ($black $green $blue), ($red $white $black), ($green $blue $red);
+$guilds: $white $blue, $white $black, $blue $black, $blue $red, $black $green, $black $red, $red $white, $red $green, $green $white, $green $blue;
+$shards: $white $blue $black, ($blue, $black, $red), ($black, $red, $green), ($red, $green, $white), ($green, $white, $blue);
+$wedges: $white $black $green, $blue $red $white, $black $green $blue, $red $white $black, $green $blue $red;
 
 @function cost($color) {
-  @return map-get($color, 'cost');
+  @return map-get($color, "cost");
 }
 
 @function background($color) {
-  @return map-get($color, 'background');
+  @return map-get($color, "background");
 }
 
 @function border($color) {
-  @return map-get($color, 'border');
+  @return map-get($color, "border");
 }
 
 @function remove($list, $value) {
   $result: ();
-  
   @if type-of($value) == list {
     @each $item in $value {
       $list: remove($list, $item);
     }
-    
     @return $list;
   }
-
   @each $item in $list {
     @if $item != $value {
       $result: append($result, $item);
     }
   }
-
   @return $result;
 }
 
 ul.boardlist li {
   margin: 4px;
+  white-space: nowrap;
 }
 
 body {
@@ -55,9 +52,9 @@ body {
 }
 
 a.qty {
-  font-family: 'beleren bold';
+  font-family: "beleren bold";
   background: black;
-  padding: 0.2rem 0.6rem;
+  padding: 2px 6px;
   border: 2px solid white;
   border-radius: 50vh 0 0 50vh;
   padding-right: 15px;
@@ -69,85 +66,113 @@ a.qty {
   border-color: red !important;
 }
 
-.card a {            
-  position: relative;
-  padding: 4px 5px;
-  color: #1f1e1f;
-  font-family: 'beleren bold';
-  background: border($gold);
-  border-radius: 50vh;
-  
-  &:before {
-    position: absolute;
-    content: attr(data-name);
-    padding-left: 3px;
-    top: 2px; bottom: 2px;
-    left: 2px; right: 2px;
+.card {
+  white-space: nowrap;
+  a {
+    position: relative;
+    padding: 4px 5px;
+    color: #1f1e1f;
+    font-family: "beleren bold";
+    background: border($gold);
     border-radius: 50vh;
-    z-index: 1;
-    background: background($gold);
-  }
-  
-  &.foil-card:after {
-    position: absolute;
-    content: "";
-    top: 0px; bottom: 0px;
-    left: 0px; right: 0px;
-    border-radius: 50vh;
-    z-index: 2;
-    background: url('https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-faded.png') repeat 0 0;
-    -webkit-animation: slide 10s linear infinite;
+    &:before {
+      position: absolute;
+      content: attr(data-name);
+      padding-left: 3px;
+      top: 2px;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+      border-radius: 50vh;
+      z-index: 1;
+      background: background($gold);
+    }
+    &.foil-card:after {
+      position: absolute;
+      content: "";
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      border-radius: 50vh;
+      z-index: 2;
+      background: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20.png") repeat 0 0;
+      -webkit-animation: slide 10s linear infinite;
+    }
   }
 }
 
 @-webkit-keyframes slide {
-  from { background-position: 0 0; }
-  to { background-position: -400px 0; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: (-400px) 0;
+  }
 }
+
 
 [src*="foil-icon.jpg"] {
   display: none;
 }
 
+.popover {
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  .arrow {
+    display: none !important;
+  }
+}
+
+.popover-content {
+  padding: 0 !important;
+  border-radius: 10px !important;
+  [style*='width:220px'] {
+    width: 100% !important;
+  }
+  [style*="foil-card-overlay-2.png"] {
+    background: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20-large.png") 0 0 repeat !important;
+    -webkit-animation: slide 10s linear infinite;
+    border-radius: 10px;
+    height: calc(100% - 24px) !important;
+  }
+  img {
+    border-radius: 10px !important;
+  }
+}
+
 @function spells($include, $exclude) {
   $spells: "";
-  
   @if type-of($include) != list {
     $include: ($include,);
   }
-  
   @each $color in $include {
     $spells: $spells + ".card-color-" + #{cost($color)};
   }
-  
   @if $exclude {
     @each $color in $exclude {
       $spells: $spells + ":not(.card-color-" + #{cost($color)} + ")";
     }
   }
-  
   @return unquote($spells);
 }
 
 @function lands($include, $exclude) {
   $lands: ".card-type-land";
-
   @if $include {
     @if type-of($include) != list {
       $include: ($include,);
     }
-    
     @each $color in $include {
       $lands: $lands + '[class*="card-mana-' + #{cost($color)} + '"]';
     }
   }
-  
   @if $exclude {
     @each $color in $exclude {
       $lands: $lands + ':not([class*="card-mana-' + #{cost($color)} + '"])';
     }
   }
-  
   @return unquote($lands);
 }
 
@@ -156,18 +181,21 @@ a.qty {
     @if type-of($include) != list {
       $include: ($include,);
     }
-    
     $excludes: remove($colors, $include);
-  
     #{spells($include, $excludes)} a,
     #{lands($include, $excludes)} a {
-      @if      length($include) == 1 { background: border(nth($include, 1)) !important } 
-      @else if length($include) == 2 { background: linear-gradient(to right, border(nth($include, 1)) 40%, border(nth($include, 2)) 60%) !important }
+      @if length($include) == 1 {
+        background: border(nth($include, 1)) !important;
+      }
+      @else if length($include) == 2 {
+        background: linear-gradient(to right, border(nth($include, 1)) 40%, border(nth($include, 2)) 60%) !important;
+      }
     }
   }
 }
 
 @include borders($colors);
+
 @include borders($guilds);
 
 @each $color in $colors {
@@ -179,7 +207,6 @@ a.qty {
 
 .card-type-artifact[class*='card-color-#{cost($artifact)}-cost'] a {
   background: border($artifact) !important;
-  
   &:before {
     background: background($artifact);
   }
@@ -187,7 +214,6 @@ a.qty {
 
 [class*='card-color-#{cost($eldrazi)}-cost']:not(.card-type-artifact) a {
   background: border($eldrazi) !important;
-  
   &:before {
     background: background($eldrazi);
   }
@@ -195,63 +221,59 @@ a.qty {
 
 .card-type-land#{lands(false, $colors)} a {
   background: border($land) !important;
-  
   &:before {
     background: background($land);
   }
 }
 
 @function transformSelectors($transformers) {
-    $result: "";
-    
-    @if type-of($transformers) != list {
-        $transformers: ($transfromers,);
-    }
-    
-    @each $transformer in $transformers {
-        $result: $result + '[data-name="' + $transformer + '"], ';
-    }
-    
-    @return $result;
+  $result: "";
+  @if type-of($transformers) != list {
+    $transformers: ($transfromers,);
+  }
+  @each $transformer in $transformers {
+    $result: $result + '[data-name="' + $transformer + '"], ';
+  }
+  @return $result;
 }
 
 @mixin transform($transformers, $frontIcon, $backIcon) {
   #{transformSelectors($transformers)} {
     visibility: visible !important;
     content: $frontIcon;
-    height: 20px;
+    height: 21.5px;
     border-color: transparent !important;
     background: white !important;
     margin-bottom: -7px;
     margin-left: -5px;
+    margin-top: -3px;
     padding: 0px !important;
     border-radius: 50%;
+    border: 1px solid white;
     &:hover {
       content: $backIcon !important;
     }
   }
 }
 
-$ixalanTransformers: ("Temple of Aclazotz"), ("Sanctum of the Sun"), ("Conqueror's Foothold"), ("Lost Vale"), ("Gold-Forge Garrison"), ("Itlimoc, Cradle of the Sun"), ("Winged Temple of Orazca"), ("Atzal, Cave of Eternity"), ("Adanto, the First Fort"), ("Metzali, Tower of Triumph"), ("Primal Wellspring"), ("Tomb of the Dusk Rose"), ("Azcanta, the Sunken Ruin"), ("Vault of Catlacan"), ("Spires of Orazca"), ("Treasure Cove"), ("Spitfire Bastion");
-$ixalanTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg');
-$ixalanTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg');
+$ixalanTransformers: "Temple of Aclazotz", "Sanctum of the Sun", "Conqueror's Foothold", "Lost Vale", "Gold-Forge Garrison", "Itlimoc, Cradle of the Sun", "Winged Temple of Orazca", "Atzal, Cave of Eternity", "Adanto, the First Fort", "Metzali, Tower of Triumph", "Primal Wellspring", "Tomb of the Dusk Rose", "Azcanta, the Sunken Ruin", "Vault of Catlacan", "Spires of Orazca", "Treasure Cove", "Spitfire Bastion";
+$ixalanTransformFront: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/2e/Dfc-compass.svg");
+$ixalanTransformBack: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/9/97/Dfc-land.svg");
 
 @include transform($ixalanTransformers, $ixalanTransformFront, $ixalanTransformBack);
 
-$sparkTransformers: ("Chandra, Roaring Flame"), ("Jace, Telepath Unbound"), ("Gideon, Battle-Forged"), ("Liliana, Defiant Necromancer"), ("Nicol Bolas, the Arisen"), ("Nissa, Sage Animist");
-$sparkTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/41/Dfc-spark.svg');
-$sparkTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/5/59/Dfc-ignite.svg');
+$sparkTransformers: "Chandra, Roaring Flame", "Jace, Telepath Unbound", "Gideon, Battle-Forged", "Liliana, Defiant Necromancer", "Nicol Bolas, the Arisen", "Nissa, Sage Animist";
+$sparkTransformFront: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/41/Dfc-spark.svg");
+$sparkTransformBack: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/5/59/Dfc-ignite.svg");
 
 @include transform($sparkTransformers, $sparkTransformFront, $sparkTransformBack);
 
-$eldraziTransformers: ("Conduit of Emrakul"), ("Aurora of Emrakul"), ("Voracious Reader"), ("Final Iteration"), ("Extricator of Flesh"), ("Grisly Anglerfish"), ("Sinuous Predator"), ("It That Rides as One"), ("Howling Chorus"), ("Erupting Dreadwolf"), ("Fibrous Entangler"), ("Ulvenwald Abomination"), ("Dronepack Kindred"), ("Abolisher of Bloodlines");
-$eldraziTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/f/fb/Dfc-fullmoon.svg');
-$eldraziTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/49/Dfc-emrakul.svg');
+$eldraziTransformers: "Conduit of Emrakul", "Aurora of Emrakul", "Voracious Reader", "Final Iteration", "Extricator of Flesh", "Grisly Anglerfish", "Sinuous Predator", "It That Rides as One", "Howling Chorus", "Erupting Dreadwolf", "Fibrous Entangler", "Ulvenwald Abomination", "Dronepack Kindred", "Abolisher of Bloodlines";
+$eldraziTransformFront: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/f/fb/Dfc-fullmoon.svg");
+$eldraziTransformBack: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/4/49/Dfc-emrakul.svg");
 
 @include transform($eldraziTransformers, $eldraziTransformFront, $eldraziTransformBack);
 
-$moonTransformers: ("Perfected Form"), ("Infectious Curse"), ("Werewolf Ransacker"), ("Avacyn, the Purifier"), ("Arlinn, Embraced by the Moon"), ("Ancient of the Equinox"), ("Lunarch Inquisitors"), ("Lord of Lineage"), ("Neck Breaker"), ("Chalice of Death"), ("Markov's Servant"), ("Homicidal Brute"), ("Unholy Fiend"), ("Branded Howler"), ("Bearer of Overwhelming Truths"), ("Nightfall Predator"), ("Insectile Aberration"), ("Krallenhorde Howler"), ("Withengar Unbound"), ("Insidious Mist"), ("Garruk, the Veil-Cursed"), ("Gatstaf Ravagers"), ("Gatstaf Howler"), ("Vildin-Pack Alpha"), ("Krallenhorde Wantons"), ("Westvale Cult Leader"), ("Bane of Hanweir"), ("Scrounged Scythe"), ("Heir to the Night"), ("Lone Wolf of the Natterknolls"), ("Hinterland Scourge"), ("Timber Shredder"), ("Ravager of the Fells"), ("Wildblood Pack"), ("Flameheart Werewolf"), ("Demon-Possessed Witch"), ("Terror of Kruin Pass"), ("Silverpelt Werewolf"), ("Lambholt Butcher"), ("Unhallowed Cathar"), ("Ludevic's Abomination"), ("Howlpack Alpha"), ("Tovolar's Magehunter"), ("Ashmouth Blade"), ("Wayward Disciple"), ("Archdemon of Greed"), ("Merciless Predator"), ("Werewolf of Ancient Hunger"), ("Moonscarred Werewolf"), ("Stalking Vampire"), ("Skin Shedder"), ("One of the Pack"), ("Ghastly Haunting"), ("Persistent Nightmare"), ("Awoken Horror"), ("Stonewing Antagonizer"), ("Thraben Militia"), ("Rampaging Werewolf"), ("Incited Rabble"), ("Ulrich, Uncontested Alpha"), ("Ulvenwald Primordials"), ("Unimpeded Trespasser"), ("Ironfang"), ("Moonrise Intruder"), ("Howlpack of Estwald"), ("Ormendahl, Profane Prince"), ("Krallenhorde Killer");
-$moonTransformFront: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg');
-$moonTransformBack: url('https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg');
-
-@include transform($moonTransformers, $moonTransformFront, $moonTransformBack);
+$moonTransformers: "Perfected Form", "Infectious Curse", "Werewolf Ransacker", "Avacyn, the Purifier", "Arlinn, Embraced by the Moon", "Ancient of the Equinox", "Lunarch Inquisitors", "Lord of Lineage", "Neck Breaker", "Chalice of Death", "Markov's Servant", "Homicidal Brute", "Unholy Fiend", "Branded Howler", "Bearer of Overwhelming Truths", "Nightfall Predator", "Insectile Aberration", "Krallenhorde Howler", "Withengar Unbound", "Insidious Mist", "Garruk, the Veil-Cursed", "Gatstaf Ravagers", "Gatstaf Howler", "Vildin-Pack Alpha", "Krallenhorde Wantons", "Westvale Cult Leader", "Bane of Hanweir", "Scrounged Scythe", "Heir to the Night", "Lone Wolf of the Natterknolls", "Hinterland Scourge", "Timber Shredder", "Ravager of the Fells", "Wildblood Pack", "Flameheart Werewolf", "Demon-Possessed Witch", "Terror of Kruin Pass", "Silverpelt Werewolf", "Lambholt Butcher", "Unhallowed Cathar", "Ludevic's Abomination", "Howlpack Alpha", "Tovolar's Magehunter", "Ashmouth Blade", "Wayward Disciple", "Archdemon of Greed", "Merciless Predator", "Werewolf of Ancient Hunger", "Moonscarred Werewolf", "Stalking Vampire", "Skin Shedder", "One of the Pack", "Ghastly Haunting", "Persistent Nightmare", "Awoken Horror", "Stonewing Antagonizer", "Thraben Militia", "Rampaging Werewolf", "Incited Rabble", "Ulrich, Uncontested Alpha", "Ulvenwald Primordials", "Unimpeded Trespasser", "Ironfang", "Moonrise Intruder", "Howlpack of Estwald", "Ormendahl, Profane Prince", "Krallenhorde Killer";
+$moonTransformFront: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/2/29/Dfc-sun.svg");
+$moonTransformBack: url("https://d1u5p3l4wpay3k.cloudfront.net/mtgsalvation_gamepedia/c/c0/Dfc-moon.svg");
