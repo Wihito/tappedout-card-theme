@@ -1,2 +1,4 @@
-<link href="https://gitcdn.xyz/repo/Saeris/typeface-beleren-bold/master/index.css" rel="stylesheet" type="text/css" />
-<link href="https://gitcdn.link/repo/Wihito/tappedout-card-theme/master/cards.css" rel="stylesheet" type="text/css" />
+
+<link href="https://cdn.jsdelivr.net/gh/Saeris/typeface-beleren-bold/index.min.css" rel="stylesheet" type="text/css" />
+
+<link href="https://cdn.jsdelivr.net/gh/Wihito/tappedout-card-theme/cards.min.css" rel="stylesheet" type="text/css" />
