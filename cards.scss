@@ -284,7 +284,8 @@ a.qty {
   }
 }
 
-[class*="card-color-#{cost($eldrazi)}-cost"]:not(.card-type-artifact) a {
+[class*="card-color-#{cost($eldrazi)}-cost"]:not(.card-type-artifact):not(.card-type-land)
+  a {
   background: border($eldrazi) !important;
   &:before {
     background: background($eldrazi);
@@ -296,6 +297,10 @@ a.qty {
   &:before {
     background: background($land);
   }
+}
+
+a[data-name="Murmuring Bosk"]:before {
+  background: background($green) !important;
 }
 
 @function transformSelectors($transformers) {
