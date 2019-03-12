@@ -184,12 +184,28 @@ a.qty {
     background-image: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20-large.png") !important;
     background-size: auto auto !important;
     background-repeat: repeat;
-    -webkit-animation: slide 10s linear infinite;
     animation: slide 10s linear infinite;
     border-radius: 10px;
   }
   img {
     border-radius: 10px !important;
+  }
+}
+
+.commander-img[data-foil="true"] + .popover .popover-content {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20-large.png") !important;
+    background-size: auto auto !important;
+    background-repeat: repeat;
+    animation: slide 10s linear infinite;
+    border-radius: 10px;
   }
 }
 
