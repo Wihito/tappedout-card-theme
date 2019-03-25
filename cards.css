@@ -27,7 +27,7 @@ a.qty {
   display: inline-block;
 }
 
-.card a {
+.card a.card-link {
   display: inline-block;
   position: relative;
   padding: 1.5px 5px;
@@ -37,7 +37,7 @@ a.qty {
   border-radius: 50vh;
 }
 
-.card a:before {
+.card a.card-link:before {
   position: absolute;
   content: attr(data-name);
   padding-left: 3px;
@@ -50,7 +50,7 @@ a.qty {
   background: #d9c174;
 }
 
-.card a.foil-card:after {
+.card a.card-link.foil-card:after {
   position: absolute;
   content: "";
   top: 0px;
@@ -59,9 +59,111 @@ a.qty {
   right: 0px;
   border-radius: 50vh;
   z-index: 2;
-  background: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20.png") repeat 0 0;
+  background: url(foil/foil-overlay-20.png) repeat 0 0;
   -webkit-animation: slide 10s linear infinite;
           animation: slide 10s linear infinite;
+}
+
+.card a + a {
+  height: 21px;
+  width: 21px;
+  margin-bottom: -7px;
+  margin-left: 1px;
+  content: url(alter/alter-icon-back.svg);
+}
+
+.card:hover a.card-link + a {
+  content: url(alter/alter-icon-front.svg);
+}
+
+img[alt="IT"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/IT.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="ES"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/ES.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="KO"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/KO.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="ZH"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/ZH.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="RU"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/RU.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="JA"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/JA.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="DE"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/DE.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="PT"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/PT.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="FR"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/FR.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
 }
 
 @-webkit-keyframes slide {
@@ -106,7 +208,7 @@ a.qty {
 }
 
 .popover-content [style*="foil-card-overlay-2.png"] {
-  background-image: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20-large.png") !important;
+  background-image: url(foil/foil-overlay-20-large.png) !important;
   background-size: auto auto !important;
   background-repeat: repeat;
   -webkit-animation: slide 10s linear infinite;
@@ -129,7 +231,7 @@ a.qty {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-image: url("https://raw.githubusercontent.com/Wihito/tappedout-card-theme/master/foil-overlay-20-large.png") !important;
+  background-image: url(foil/foil-overlay-20-large.png) !important;
   background-size: auto auto !important;
   background-repeat: repeat;
   -webkit-animation: slide 10s linear infinite;
@@ -159,139 +261,139 @@ a.qty {
   background: none;
 }
 
-.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: #f7f8ee !important;
 }
 
-.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: #3459ae !important;
 }
 
-.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: #1c1512 !important;
 }
 
-.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a,
-.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a {
+.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link {
   background: #f5081f !important;
 }
 
-.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a,
-.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a {
+.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a.card-link,
+.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link {
   background: #3e7632 !important;
 }
 
-.card-color-white.card-color-blue:not(.card-color-black):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-white.card-color-blue:not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f7f8ee), color-stop(60%, #3459ae)) !important;
   background: linear-gradient(to right, #f7f8ee 40%, #3459ae 60%) !important;
 }
 
-.card-color-white.card-color-black:not(.card-color-blue):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-white.card-color-black:not(.card-color-blue):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f7f8ee), color-stop(60%, #1c1512)) !important;
   background: linear-gradient(to right, #f7f8ee 40%, #1c1512 60%) !important;
 }
 
-.card-color-blue.card-color-black:not(.card-color-white):not(.card-color-red):not(.card-color-green) a,
-.card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-color-blue.card-color-black:not(.card-color-white):not(.card-color-red):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3459ae), color-stop(60%, #1c1512)) !important;
   background: linear-gradient(to right, #3459ae 40%, #1c1512 60%) !important;
 }
 
-.card-color-blue.card-color-red:not(.card-color-white):not(.card-color-black):not(.card-color-green) a,
-.card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a {
+.card-color-blue.card-color-red:not(.card-color-white):not(.card-color-black):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3459ae), color-stop(60%, #f5081f)) !important;
   background: linear-gradient(to right, #3459ae 40%, #f5081f 60%) !important;
 }
 
-.card-color-black.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-red) a,
-.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a {
+.card-color-black.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-red) a.card-link,
+.card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #1c1512), color-stop(60%, #3e7632)) !important;
   background: linear-gradient(to right, #1c1512 40%, #3e7632 60%) !important;
 }
 
-.card-color-black.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-green) a,
-.card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a {
+.card-color-black.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #1c1512), color-stop(60%, #f5081f)) !important;
   background: linear-gradient(to right, #1c1512 40%, #f5081f 60%) !important;
 }
 
-.card-color-red.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-green) a,
-.card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a {
+.card-color-red.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-green) a.card-link,
+.card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f5081f), color-stop(60%, #f7f8ee)) !important;
   background: linear-gradient(to right, #f5081f 40%, #f7f8ee 60%) !important;
 }
 
-.card-color-red.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black) a,
-.card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a {
+.card-color-red.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black) a.card-link,
+.card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f5081f), color-stop(60%, #3e7632)) !important;
   background: linear-gradient(to right, #f5081f 40%, #3e7632 60%) !important;
 }
 
-.card-color-green.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red) a,
-.card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a {
+.card-color-green.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red) a.card-link,
+.card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3e7632), color-stop(60%, #f7f8ee)) !important;
   background: linear-gradient(to right, #3e7632 40%, #f7f8ee 60%) !important;
 }
 
-.card-color-green.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red) a,
-.card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a {
+.card-color-green.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red) a.card-link,
+.card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3e7632), color-stop(60%, #3459ae)) !important;
   background: linear-gradient(to right, #3e7632 40%, #3459ae 60%) !important;
 }
 
-.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:before,
-.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+.card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link:before,
+.card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
   background: #dedede !important;
 }
 
-.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a:before,
-.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+.card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link:before,
+.card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
   background: #b2cde2 !important;
 }
 
-.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a:before,
-.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+.card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a.card-link:before,
+.card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
   background: #c4bfba !important;
 }
 
-.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a:before,
-.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a:before {
+.card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a.card-link:before,
+.card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before {
   background: #fabe99 !important;
 }
 
-.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a:before,
-.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a:before {
+.card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a.card-link:before,
+.card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before {
   background: #becdc0 !important;
 }
 
-.card-type-artifact[class*="card-color-colorless-cost"] a {
+.card-type-artifact[class*="card-color-colorless-cost"] a.card-link {
   background: #e4e5e5 !important;
 }
 
-.card-type-artifact[class*="card-color-colorless-cost"] a:before {
+.card-type-artifact[class*="card-color-colorless-cost"] a.card-link:before {
   background: #d5dde1;
 }
 
 [class*="card-color-colorless-cost"]:not(.card-type-artifact):not(.card-type-land)
-a {
+a.card-link {
   background: #e5e7e9 !important;
 }
 
 [class*="card-color-colorless-cost"]:not(.card-type-artifact):not(.card-type-land)
-a:before {
+a.card-link:before {
   background: #dad5d1;
 }
 
-.card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a {
+.card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: #988b7e !important;
 }
 
-.card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a:before {
+.card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
   background: #cdc2bf;
 }
 
@@ -301,7 +403,7 @@ a[data-name="Murmuring Bosk"]:before {
 
 [data-name="Temple of Aclazotz"], [data-name="Sanctum of the Sun"], [data-name="Conqueror's Foothold"], [data-name="Lost Vale"], [data-name="Gold-Forge Garrison"], [data-name="Itlimoc, Cradle of the Sun"], [data-name="Winged Temple of Orazca"], [data-name="Atzal, Cave of Eternity"], [data-name="Adanto, the First Fort"], [data-name="Metzali, Tower of Triumph"], [data-name="Primal Wellspring"], [data-name="Tomb of the Dusk Rose"], [data-name="Azcanta, the Sunken Ruin"], [data-name="Vault of Catlacan"], [data-name="Spires of Orazca"], [data-name="Treasure Cove"], [data-name="Spitfire Bastion"] {
   visibility: visible !important;
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB2ZXJzaW9uPSIxLjEiCiAgIHdpZHRoPSIzNDciCiAgIGhlaWdodD0iMzQ3Ij4KICA8cGF0aCBkPSJtIDM0NywxNzMuNSBhIDE3My41LDE3My41IDAgMCAxIC0zNDcsMCAxNzMuNSwxNzMuNSAwIDEgMSAzNDcsMCB6Ii8+CiAgPHBhdGggZD0ibSAzNDAuMDYsMTczLjUgYSAxNjYuNTYsMTY2LjU2IDAgMCAxIC0zMzMuMTIsMCAxNjYuNTYsMTY2LjU2IDAgMSAxIDMzMy4xMiwwIHoiIHN0eWxlPSJmaWxsOiNmZmZmZmYiLz4KICA8cGF0aCBkPSJtIDMyNy45MTUsMTczLjUgYSAxNTQuNDE1LDE1NC40MTUgMCAwIDEgLTMwOC44MywwIDE1NC40MTUsMTU0LjQxNSAwIDEgMSAzMDguODMsMCB6Ii8+CiAgPHBhdGggZD0ibSAyNjIuMjg4NjMsMTczLjUgYSA4OC43ODg2MjgsODguNzg4NjI4IDAgMCAxIC0xNzcuNTc3MjU1LDAgODguNzg4NjI4LDg4Ljc4ODYyOCAwIDEgMSAxNzcuNTc3MjU1LDAgeiIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik0gMTMyLjU0MjUxLDEzMi41NDI1MSBDIDE1Mi41NTE5NiwxMTIuNTMzNTUgMTczLjUsMzQuNTI2NSAxNzMuNSwzNC41MjY1IGwgMCwxMzguOTczNSB6IiAvPgogIDxwYXRoIGQ9Ik0gMjE0LjQ1NzQ5LDEzMi41NDI1MSBDIDE5NC40NDgwNCwxMTIuNTMzNTUgMTczLjUsMzQuNTI2NTAxIDE3My41LDM0LjUyNjUwMSBMIDE3My41LDE3My41IHoiIHN0eWxlPSJmaWxsOiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNIDIxNC40NTc0OSwxMzIuNTQyNTEgQyAyMzQuNDY2NDUsMTUyLjU1MTk2IDMxMi40NzM1LDE3My41IDMxMi40NzM1LDE3My41IGwgLTEzOC45NzM1LDAgeiIgLz4KICA8cGF0aCBkPSJtIDIxNC40NTc0OSwyMTQuNDU3NSBjIDIwLjAwODk2LC0yMC4wMDk0NSA5OC4wMTYwMSwtNDAuOTU3NDkgOTguMDE2MDEsLTQwLjk1NzQ5IGwgLTEzOC45NzM1LDAgeiIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik0gMjE0LjQ1NzQ5LDIxNC40NTc0OSBDIDE5NC40NDgwNCwyMzQuNDY2NDUgMTczLjUsMzEyLjQ3MzUgMTczLjUsMzEyLjQ3MzUgbCAwLC0xMzguOTczNSB6IiAvPgogIDxwYXRoIGQ9Im0gMTMyLjU2NjU3LDIxNC40MzM0MyBjIDIwLjAwOTQ1LDIwLjAwODk2IDQwLjk1NzQ5LDk4LjAxNjAxIDQwLjk1NzQ5LDk4LjAxNjAxIGwgMCwtMTM4Ljk3MzUgeiIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik0gMTMyLjU0MjUxLDIxNC40NTc0OSBDIDExMi41MzM1NSwxOTQuNDQ4MDQgMzQuNTI2NSwxNzMuNSAzNC41MjY1LDE3My41IGwgMTM4Ljk3MzUsMCB6Ii8+CiAgPHBhdGggZD0iTSAxMzIuNTQyNTEsMTMyLjU0MjUxIEMgMTEyLjUzMzU1LDE1Mi41NTE5NiAzNC41MjY0OTgsMTczLjUgMzQuNTI2NDk4LDE3My41IEwgMTczLjUsMTczLjUgeiIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPgo8L3N2Zz4K");
+  content: url(transform/compass.svg);
   height: 21.5px;
   border-color: transparent !important;
   background: white !important;
@@ -314,12 +416,12 @@ a[data-name="Murmuring Bosk"]:before {
 }
 
 [data-name="Temple of Aclazotz"]:hover, [data-name="Sanctum of the Sun"]:hover, [data-name="Conqueror's Foothold"]:hover, [data-name="Lost Vale"]:hover, [data-name="Gold-Forge Garrison"]:hover, [data-name="Itlimoc, Cradle of the Sun"]:hover, [data-name="Winged Temple of Orazca"]:hover, [data-name="Atzal, Cave of Eternity"]:hover, [data-name="Adanto, the First Fort"]:hover, [data-name="Metzali, Tower of Triumph"]:hover, [data-name="Primal Wellspring"]:hover, [data-name="Tomb of the Dusk Rose"]:hover, [data-name="Azcanta, the Sunken Ruin"]:hover, [data-name="Vault of Catlacan"]:hover, [data-name="Spires of Orazca"]:hover, [data-name="Treasure Cove"]:hover, [data-name="Spitfire Bastion"]:hover {
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxMCIKICAgd2lkdGg9IjMyNyIKICAgaGVpZ2h0PSIzMjciCiAgIHZpZXdCb3g9IjAgMCAzMjcgMzI3IgogICBzb2RpcG9kaTpkb2NuYW1lPSJkZmMtbGFuZDIuc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjIgKDVjM2U4MGQsIDIwMTctMDgtMDYpIj4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGExNiI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczE0IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMSIKICAgICBvYmplY3R0b2xlcmFuY2U9IjEwIgogICAgIGdyaWR0b2xlcmFuY2U9IjEwIgogICAgIGd1aWRldG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICAgIGlkPSJuYW1lZHZpZXcxMiIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMi42NDAyNDM5IgogICAgIGlua3NjYXBlOmN4PSIxNjQiCiAgICAgaW5rc2NhcGU6Y3k9IjE0OC44NDk4OCIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnMTAiIC8+CiAgPHBhdGgKICAgICBzdHlsZT0iZmlsbDojMDAwMDAwO3N0cm9rZS13aWR0aDowLjk5NzY5NjIyIgogICAgIGQ9Ik0gMTQ2LjU1MTQ1LDMyNi40MDU2OCBDIDEwOC42MDk1NCwzMjIuMzI0OSA3Mi44OTU5MjMsMzA0LjY4NjU0IDQ1LjY4OTA1MywyNzYuNTkxNCAyMC44NjQwMiwyNTAuOTU1ODcgNi4wOTA5Mzg1LDIyMC4yOTI4NiAxLjMyNjg0NTksMTg0LjUxMzI2IC0zLjg2Mjc2NSwxNDUuNTM3ODIgNi4zMjQ5ODk2LDEwMy43NDA5OCAyOS4xODYzMzEsNzAuMjE1NDI1IDM2LjkyMjM3Nyw1OC44NzA3MjMgNTQuNDQyMDMsNDAuNjkyNzkgNjUuNjE3MjkzLDMyLjQxNTYyNCA5OS43MDA4MzEsNy4xNzEwMTI4IDE0My4wNDY1OCwtNC4xMzU5MTcxIDE4NC42NjQwOSwxLjM2MTc0MyBjIDM0LjcyMzk5LDQuNTg3MDI3IDY2LjM1MjksMTkuNzY4MjQxIDkxLjQzNDcxLDQzLjg4Njc0MSAyNS43NzQwOSwyNC43ODQxOSA0Mi42MTIwOCw1Ni4wNDkwNTYgNDguNTA3MzEsOTAuMDY4NTc2IDE1LjAwMTIyLDg2LjU2NzQ5IC00Mi4wNjIwNiwxNzAuODY4NDQgLTEyNy40MTM4MywxODguMjMxNDkgLTE0LjkyNTIyLDMuMDM2MjIgLTM3LjI1OTY2LDQuMjk2MzMgLTUwLjY0MDgzLDIuODU3MTMgeiBtIDQ0LjM5OTY1LC03Ljc1NTAyIGMgMjAuNjc4MjIsLTMuNTk5NjEgNDQuODQ1NTUsLTEzLjYxODczIDYxLjkyOTY2LC0yNS42NzQzMyAzNS41Mjk2MiwtMjUuMDcxOTEgNTguNDk3MTgsLTYxLjA0NzY1IDY1Ljc5MDQxLC0xMDMuMDUyMjYgMi4wNDA3MywtMTEuNzUzMzUgMi4zMDgxNSwtMzYuNDg2NzggMC41MzM5NiwtNDkuMzgzNTUgQyAzMTQuNDgyOTgsMTA2LjIxNDc4IDI5OC40NDE5NCw3NS42Mzg4NDUgMjcxLjUwMjg2LDQ5LjYxNDg2NiAyMzkuMDkzMjcsMTguMzA2MjMxIDE5Ni44NDkyNiwzLjM0MTE4NjUgMTUxLjA2NzkzLDYuOTUwNTAzOCAxMzUuMjIyMTQsOC4xOTk3NTY5IDEyNi4yMjEzNiw5Ljk0NzA5NiAxMTIuOTc2MDEsMTQuMzQ1MzUzIDcwLjY5MTA0NiwyOC4zODY1MzYgMzMuMjc3NjM0LDY0LjIxMzc5NyAxNi43NDM4MDIsMTA2LjQ5NzggOC4yNzI4MTczLDEyOC4xNjE2OCA0LjYzMDA4MDIsMTUzLjIyMzIgNi42NzMxOTI2LDE3NS43ODIxNyBjIDMuODY2NTUxNCw0Mi42OTI0OSAyMy4zMzEyMDk0LDgxLjAyMDEyIDU0LjM3NzAxMjQsMTA3LjA3MzE2IDI2LjEwMTU1OCwyMS45MDM5MyA1My4yNDI0OTUsMzMuMzI2NzMgODkuNDkyMjI1LDM3LjY2NDU2IDYuODE1MDIsMC44MTU1MiAzMS41NjIwNCwtMC4zMjkyMyA0MC40MDg2NywtMS44NjkyMyB6IE0gMTQwLjU2NDk4LDMwMS43NDg4OSBDIDExMC43MjY4MywyOTYuNDQ2MzMgODUuMjAyNjk4LDI4My4wMDI0MSA2My43Mzg2MTksMjYxLjI4MzQgNDUuMjg1MjM2LDI0Mi42MTA4MiAzNC43ODMyNDEsMjIzLjc5MTc4IDI3LjUzNTI0MiwxOTYuNDA4NzggYyAtMi44NzgzOTQsLTEwLjg3NDYxIC0zLjA0MTIxNiwtMTIuNTEzNTUgLTMuMTIyMTUzLC0zMS40MjU5IC0wLjA2ODQ1LC0xNS45ODYzNSAwLjI4MzU0OSwtMjEuNjM4NzUgMS43NzA0NjgsLTI4LjQzMjk1IDkuNzcyMDE1LC00NC42NTEyOTUgMzcuMzY3ODA1LC04MC4yMzQzMzQgNzYuOTY1OTkzLC05OS4yNDI3OTkgMTcuNTIyNTQsLTguNDExNDE3IDM0LjM2MzA2LC0xMi40NjkyMTEgNTQuODc1OTcsLTEzLjIyMjU5NyA2My4zNjk2NSwtMi4zMjc0MDggMTE4LjcwNTk4LDM1Ljk5NDgwOSAxMzguMjc3MzcsOTUuNzYxNjE2IDUuMjcwOTYsMTYuMDk2MzYgNy4yMTc4OSwzMC42OTA4MiA2LjU1MzY5LDQ5LjEyNzMyIC0wLjU5OTM4LDE2LjYzNzM2IC0xLjkwODg4LDI0LjUwNTY3IC02LjMwOTMyLDM3LjkxMDYgLTE1LjYxNTI0LDQ3LjU2ODIxIC01NC42MTQyNyw4Mi41NDc4MiAtMTA0LjU5ODQxLDkzLjgxNzk3IC05LjY2ODU3LDIuMTgwMDIgLTQxLjM3Mjc5LDIuODI1OTMgLTUxLjM4Mzg3LDEuMDQ2ODUgeiBtIDU0Ljg3NTk3LC01OC40OTE5MyBjIDIyLjg5MDk0LC0yLjA1ODk5IDUxLjMzOTMzLC04LjU4ODI5IDYyLjg2NTYyLC0xNC40Mjg1MyA2LjMyNTM0LC0zLjIwNDk5IDEyLjM1MzIzLC04LjU4NjE5IDEzLjk1ODMyLC0xMi40NjA4NSAyLjUwNTUsLTYuMDQ4MjMgMC44MTgwOSwtOS4xOTk2OCAtMTIuMjg0NzUsLTIyLjk0MzI2IC0xNS40NjE5OCwtMTYuMjE4MDggLTE4LjQ0MTE1LC0yMS4xNjg0MyAtMjguMDM2ODksLTQ2LjU4NzQ2IC00LjgxODkzLC0xMi43NjUzNCAtMTEuMTk3OTgsLTE5LjI1NDYxIC0xOC45MzQ4NiwtMTkuMjYyMDMgLTMuMzM0NjcsLTAuMDAzIC00LjUzNDI5LDAuNjcxNzcgLTguNDgwODMsNC43NzE3NCAtMi41MjgyMiwyLjYyNjUxIC02LjY0NzUsOC4xNDI1MiAtOS4xNTM5NiwxMi4yNTc4IC0zLjE5NTI2LDUuMjQ2MTkgLTUuNTgwNzMsNy45ODA3OCAtNy45ODE5Niw5LjE1MDEyIGwgLTMuNDI0NzUsMS42Njc3NiAtNi4zMDAwNiwtNi4xOTM4MSBDIDE2Ni45MTEzLDEzOC42NTQzIDE2MC41NTg0LDEyNy42NTMyNyAxNDYuNTU5OTIsOTUuMzYyMDUxIGMgLTMuOTkyNjIsLTkuMjEwMDMyIC04LjA4NzE4LC0xNy43OTc4ODUgLTkuMDk5MDQsLTE5LjA4NDEyIC01LjMyODIsLTYuNzczMDYgLTE1Ljk2NjA0LC0xLjA0Njk4NyAtMjEuMTU1MTIsMTEuMzg3MjY4IC0wLjgwMTQ2LDEuOTIwNDcxIC00LjcxMTcsMTMuNTkyOTUxIC04LjY4OTQzLDI1LjkzODg0MSAtMTIuNDA1NDgxLDM4LjUwMzUzIC0yMC44ODQ0MTgsNTUuNDE3NDYgLTM1LjY1NDU4Niw3MS4xMjQ0IC0xNC41NDc5MiwxNS40NzA1OCAtMTguNzIzNDkzLDIyLjMxMzA0IC0xNy45MjcyMDMsMjkuMzc3MDMgMC42MjkzNDgsNS41ODMwOCAzLjMzOTk3Miw4LjQ5NDU4IDExLjk2NzQyMywxMi44NTQzMyAxNC42NTY3MTQsNy40MDY1NCAyOC4wODU2MDMsMTEuMTk5MzUgNTIuNjEyNjI2LDE0Ljg1OTc3IDEyLjgwNDEsMS45MTA4OSAxOS43NTY5LDIuMzIxOSA0MC40MDg2NywyLjM4ODc0IDEzLjcxODk5LDAuMDQ0NCAzMC4xMDY5NiwtMC4zODM3MSAzNi40MTc2OSwtMC45NTEzNSB6IgogICAgIGlkPSJwYXRoMzgiCiAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KPC9zdmc+Cg==") !important;
+  content: url(transform/land.svg) !important;
 }
 
 [data-name="Chandra, Roaring Flame"], [data-name="Jace, Telepath Unbound"], [data-name="Gideon, Battle-Forged"], [data-name="Liliana, Defiant Necromancer"], [data-name="Nicol Bolas, the Arisen"], [data-name="Nissa, Sage Animist"] {
   visibility: visible !important;
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnMzc2MyIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZGZjLWVuY2hhbnQuc3ZnIgogICB3aWR0aD0iMzI3IgogICBoZWlnaHQ9IjMyNyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4yICg1YzNlODBkLCAyMDE3LTA4LTA2KSI+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhMzc2OSI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczM3NjciIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMTciCiAgICAgaWQ9Im5hbWVkdmlldzM3NjUiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGlua3NjYXBlOnpvb209IjIuMzYiCiAgICAgaW5rc2NhcGU6Y3g9IjUwIgogICAgIGlua3NjYXBlOmN5PSIxNjguNjQ0MDciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzM3NjMiIC8+CiAgPHBhdGgKICAgICBkPSJNIDE2My40OTkzNiwwIEMgMjUzLjc5ODYyLDAgMzI3LDczLjIwMTM4IDMyNywxNjMuNSAzMjcsMjUzLjc5ODYyIDI1My43OTg2MiwzMjcgMTYzLjUsMzI3IDczLjIwMTM3NywzMjcgMCwyNTMuNzk4NjIgMCwxNjMuNSAwLDczLjIwMTM4IDczLjIwMTM3NywwIDE2My41LDAgWiBtIDIuMjA0NywxNDIuMjA0MTMgYyAtNDkuNDEwODUsMi4zNjg4MyAtODQuNTQyMjc3LDEyLjk3MDc4IC0xMjcuNzM2OTMzLDM4LjQwNzE3IDE5LjY4MjU5LDE1LjM4Njg4IDQwLjkxNDU5OCwzMy4zMDQ4MiA1OS41NDQwMTgsNDkuOTIzMDYgMjMuMzMzODc1LDIwLjgxNTU5IDM2LjExNTYxNSwzNy4zNTkxMSA0OS41OTU0MjUsNTMuOTU1NjQgNS41ODU4Miw2Ljg3Nzg2IDkuODMxNzIsMTMuNzE2NzYgMTYuODk0NzksMjAuOTQ5MDggMzMuMTQ2NDMsLTQ5LjMwMjkyIDc3LjEzOTQzLC05MC4xNDI3OSAxMjUuMDMxNTEsLTEyNC45NTYxNiAtMjguNDY2MjQsLTE2Ljc5NzcxIC01OS43NTI4NiwtMjkuMTcxMzMgLTkyLjE5NDg0LC0zNS40NTQ1OSAtMTcuMjMwMDksLTIuNTcxMjkgLTYuODgyOTYsLTEuMzMzNTQgLTMxLjEzMzk3LC0yLjgyNDIgeiBtIC04LjQyMDI1LC02Mi4xNzQwNyBjIC02LjA3Njk3LDAuOTEwNzQgLTEyLjI1NTQ4LDEuMzAxNjEgLTE4LjIzMTUzLDIuNzMyODcgLTMzLjQ1OTM4LDguMDE2NjEgLTYxLjM3OTU2MSwzMS43OTQzNyAtNzIuNTU1MDQyLDY0LjUwOTcgMzIuMzc2ODMyLC0xMC45NjM0NSA2NS40NTkzOTIsLTIyLjYzMTk4IDEwMC4yNzIxMjIsLTIwLjkwMTE4IDMyLjUwNTg1LC0wLjU3NjcyIDYzLjIxNTc0LDEwLjg5OTU3IDkzLjYwNTAzLDIwLjkwMTE4IC0xMS4wOTExOCwtMzMuNDY3MDUgLTQxLjAzMjExLC01OC43MjcxNiAtNzUuNTI1NTEsLTY1LjA3NDkyIC0xNS4xODQ0MiwtMi42NTI0MSAtNi4wNDA1NSwtMS40OTgzMyAtMjcuNTY1MDcsLTIuMTY3NjUgeiIKICAgICBpZD0icGF0aDM3NjEiCiAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICBzdHlsZT0ic3Ryb2tlLXdpZHRoOjAuMzE5MzM1OTQiIC8+Cjwvc3ZnPgo=");
+  content: url(transform/spark.svg);
   height: 21.5px;
   border-color: transparent !important;
   background: white !important;
@@ -332,12 +434,12 @@ a[data-name="Murmuring Bosk"]:before {
 }
 
 [data-name="Chandra, Roaring Flame"]:hover, [data-name="Jace, Telepath Unbound"]:hover, [data-name="Gideon, Battle-Forged"]:hover, [data-name="Liliana, Defiant Necromancer"]:hover, [data-name="Nicol Bolas, the Arisen"]:hover, [data-name="Nissa, Sage Animist"]:hover {
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnMzc3MyIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZGZjLWlnbml0ZS5zdmciCiAgIHdpZHRoPSIzMjciCiAgIGhlaWdodD0iMzI3IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjIgKDVjM2U4MGQsIDIwMTctMDgtMDYpIj4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGEzNzc5Ij4KICAgIDxyZGY6UkRGPgogICAgICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZGVmcwogICAgIGlkPSJkZWZzMzc3NyIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEiCiAgICAgb2JqZWN0dG9sZXJhbmNlPSIxMCIKICAgICBncmlkdG9sZXJhbmNlPSIxMCIKICAgICBndWlkZXRvbGVyYW5jZT0iMTAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAxNyIKICAgICBpZD0ibmFtZWR2aWV3Mzc3NSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMi4zNiIKICAgICBpbmtzY2FwZTpjeD0iNTAiCiAgICAgaW5rc2NhcGU6Y3k9IjE2OC42NDQwNyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnMzc3MyIgLz4KICA8cGF0aAogICAgIGQ9Ik0gMTYzLjUsMCBDIDI1My43OTg2MiwwIDMyNyw3My4yMDEzOCAzMjcsMTYzLjUgMzI3LDI1My43OTg2MiAyNTMuNzk4NjIsMzI3IDE2My41LDMyNyA3My4yMDEzNzcsMzI3IDAsMjUzLjc5ODYyIDAsMTYzLjUgMCw3My4yMDEzOCA3My4yMDEzNzcsMCAxNjMuNSwwIFogbSAtMC4zNjY2LDE2LjI5MzE2IHYgMCBjIC0wLjU0MzUxLDIuMDY5OTMgLTAuOTEyNjYsNC4xNzI0NCAtMS4xMjA4Nyw2LjMwNDMzIC0xLjAxOTMyLDkuNTEzNjUgLTEuNDcxNSwxOS4wNzcxMyAtMi4wNjgwMiwyOC42MjIwOCAtMS4yMjgxNiwyMS41NjAyOCAtMi40MzY1Myw0My4xMjc1OSAtNC4zMzUzLDY0LjY0MzE3IC0xLjEyNjYyLDEyLjYxNjMzIC0yLjQ1ODg5LDI1LjIxOTg4IC00LjMzMDg0LDM3Ljc0ODA2IC0xLjcwOTcyLDExLjE5MjA5IC0zLjcyNjAxLDIyLjM4NTQ1IC03LjE2NjUzLDMzLjE5MTc4IC00LjU5NjUyLDAuMzA1OTMgLTkuMTgyODMsMC43MjYxNyAtMTMuNzY5NzcsMS4xMzg3NSAtMS42NTczNSwtNC42NTY1NSAtMi41NzAwMSwtOS41MzM0NSAtMy40OTU0NSwtMTQuMzc1ODYgLTIuMDU3OCwtMTEuNDcyNDYgLTMuNDg0NTksLTIzLjA0NjQ4IC00LjgyMTk3LC0zNC42MjExMyAtMi43ODM5NywtMjQuMzUzODMgLTQuODA3OTIsLTQ4Ljc4ODE0IC03LjEwNDU5LC03My4xODkyNCAtMC4zNjc4NywtMy42MjI1NSAtMC42ODE0NiwtNy4yNTQwMyAtMS4yNTU2MywtMTAuODUxMDMgLTAuNTMyMDEsMS41NzM2OCAtMC42NjgwNSwzLjIzOTM0IC0wLjkxNzEzLDQuODcyNDIgLTAuNjc2MzUsNS4xNTA4OSAtMS4xODg1NywxMC4zMjQxMyAtMS43MTczOSwxNS40OTE2MyAtMi45MDQwNCwyOC43MzQ0OSAtNS41MTE3NCw1Ny41MjM5IC05Ljk3MTU4LDg2LjA2OTM0IC0xLjA5ODUxOCw2LjkxNTU0IC0yLjMyNjY4NCwxMy44MTEyOCAtMy44Nzk5MzQsMjAuNjM5OTYgLTEuMDI0NDI5LDQuNDAzIC0yLjE3MDIwNyw4Ljc4ODEyIC0zLjc2MTEzOCwxMy4wMjM3OSAtNC4yNjM3NzQsMS4zMTc1OCAtOC41MDcxMSwyLjcyNzEzIC0xMi42MDkyOTksNC40OTQzNCAtMS45MTYwMTYsLTQuNDYyNCAtMy4yMzM1OTYsLTkuMTUyODEgLTQuNDQxMzI0LC0xMy44NDY0MSAtMi42ODQ5NzcsLTEwLjc5NDE5IC00LjQ0NzA3MywtMjEuNzg4MjkgLTYuMDExMTgsLTMyLjc5MTMzIC0xLjk2MzkxNiwtMTMuNzI5NTMgLTMuMzY1ODAxLC0yNy41Mjg2NyAtNS4yMzAwODQsLTQxLjI3MDk4IC0wLjU0MjIzMiwtMy41NDQ2MiAtMC45NjI0NzgsLTcuMTQxNjIgLTIuMDIzOTUxLC0xMC41NzcwNCBsIC0wLjI3MDc5NywtMC4wNDc5IGMgLTAuNTA5NjYsMS42ODE2MiAtMC43MjI5NzcsMy40MzYwNSAtMC45OTY5NjcsNS4xNjg3NyAtMS4zMTI0Nyw5LjUwMDg4IC0yLjE5NTExNSwxOS4wNTY2OSAtMy4xMjQzODMsMjguNjAyMjggLTIuNzM0NzkzLDI5LjM4NTkzIC01LjA5NDA0Niw1OC44MDg5MSAtNy4zMjYyMDUsODguMjM0NDQgMTYuMTY3OTc5LDYuMTM1NzIgMzEuMTUzMTM3LDE1LjI3ODMxIDQ0LjE4NzE1MywyNi42MjYyMyAyMy41MzQ0MTksMjAuNTc5MjggNTEuMDY4ODM5LDQ1Ljk0Nzk3IDY3LjE0ODA0OSw3Mi42MDYxMyAwLjI5MDU5LDAuMDI0OSAwLjM5MzQyLDAuODM3OTQgMC43MTAyLDAuMjE0NiA5LjIyNTYxLC0xOC4xOTM4NSAxOS40NDQzNiwtMzAuNTQxMjkgMzQuMzQ3MTMsLTQ0LjU5MjA3IDEyLjk4MTAxLC0xMi4yMzg4NyAyNi41NDI1NywtMjMuNTI4NjggNDAuNDQ5MDEsLTMzLjYzNjk0IDEwLjM5MzExLC03LjU0OTEgMjQuNzI0OSwtMTYuNjYxMDMgMzYuNzQ2NjIsLTIxLjIwNzczIC0xLjU2Nzk0LC0yMS4xNDAwNCAtMy4yOTM2MywtNDIuMjcwNSAtNS4wODU3NCwtNjMuMzkyNjYgLTAuMTI0NTQsLTEuMjI2MjUgLTAuMjQ5MDgsLTIuNDUxMjIgLTAuMjM2MzEsLTMuNjg0NSBsIC0wLjA5OTYsMC40MDMwMSBjIC0wLjY1MzM2LC04Ljc2NzY5IC0xLjUzMTU0LC0xNy41MTc1IC0yLjM0OTA0LC0yNi4yNzM2OSAtMC44MDc5MiwtOC4wNjEzMSAtMS41NzYyNCwtMTYuMTMwOTMgLTIuNzA5ODgsLTI0LjE1NTIxIC0wLjI5MzE1LC0xLjc1MjUxIC0wLjQ3NDUzLC0zLjU0NzE4IC0xLjEwMzYzLC01LjIyMjQyIC0xLjI3OTg5LDMuOTA5MzEgLTEuNjkzMTIsOC4wMzM4NiAtMi4zMDk0MywxMi4wODU1OSAtMi4zMzYyNywxNy43NjcyMSAtNC4xMDE1NSwzNS42MTYxOCAtNy4wOTE4Miw1My4yOTI3IC0xLjM4OTc1LDguMTkzNTIgLTIuOTc4MTIsMTYuMzcyMzUgLTUuMjY5NjgsMjQuMzY5MTYgLTAuOTEwMTEsMy4wNzc3NiAtMS44NzcwNSw2LjE1MDQxIC0zLjE2MjcsOS4wOTM0MSAtNC4xMDE1NSwtMS43NTQ0MyAtOC4zMzQ2NywtMy4xODE4NiAtMTIuNjAxLC00LjQ4MTU2IC0yLjUzNDg5LC02Ljc5Njc0IC00LjAzNzA0LC0xMy45MTkyMSAtNS40NDQwNCwtMjEuMDE1NSAtMi4wODU5LC0xMC44NjYzNiAtMy42NDkzNywtMjEuODIxNSAtNS4wNzE2OSwtMzIuNzg5NDEgLTMuMDc2NDgsLTIzLjg5OTEgLTUuMjUyNDQsLTQ3LjkwMDM5IC03LjcxNTc5LC03MS44NjY1NSAtMC4zODc2OCwtMy42MDI3NSAtMC43NzAyNCwtNy4yMDQ4NiAtMS4yNzc5OSwtMTAuNzkxNjQgLTAuMTkzNTEsLTEuMTg4NTcgLTAuMjkyNTEsLTIuNDA5MDcgLTAuNzI4MDgsLTMuNTQyNzEgLTAuODY3MzIsNS4yNDA5NCAtMS4yMTg1OSwxMC41NTI3NyAtMS43NTUwNywxNS44MzUyMyAtMi4zNTg2MiwyNS42MzUwMSAtNC41MzM5Myw1MS4yOTQyOSAtNy42NTY0LDc2Ljg1MTM4IC0wLjgxMDQ4LDYuNTQzMiAtMS42ODU0NiwxMy4wODEyOCAtMi43MjI2NiwxOS41OTE5IC0xLjE2NzQ5LDYuOTY0NzIgLTIuMjgzODksMTMuOTg3NTUgLTQuNTU1NjUsMjAuNjk0MjUgLTQuNTg2OTQsLTAuNTAyIC05LjE4NjAxLC0wLjgzOTg2IC0xMy43ODE5LC0xLjE4MjgyIC0zLjQ3ODIsLTEwLjk2MjgxIC01LjUxNDI5LC0yMi4zMTgzOSAtNy4yMzQyMywtMzMuNjcyMDYgLTMuNTE3ODEsLTI0LjA1NTU4IC01LjMwMjI2LC00OC4zMjI1NSAtNi44NzE0NywtNzIuNTY3MTggLTAuOTI4NjMsLTE0LjgzMTI0IC0xLjY5MjQ4LC0yOS42NzIwNSAtMi42NDkyMSwtNDQuNTAwMSAtMC40MjI4MSwtNS41NjYwMiAtMC43NDA4NiwtMTEuMTQ5MjkgLTEuNTY5MjIsLTE2LjY3MzgxIC0wLjE3ODgzLC0xLjA0NjE0IC0wLjI4NDIxLC0yLjEzNjM1IC0wLjc4NTU3LC0zLjA4OTI1IHoiCiAgICAgaWQ9InBhdGgzNzcxIgogICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgc3R5bGU9InN0cm9rZS13aWR0aDowLjMxOTMzNTk0IiAvPgo8L3N2Zz4K") !important;
+  content: url(transform/ignite.svg) !important;
 }
 
 [data-name="Conduit of Emrakul"], [data-name="Aurora of Emrakul"], [data-name="Voracious Reader"], [data-name="Final Iteration"], [data-name="Extricator of Flesh"], [data-name="Grisly Anglerfish"], [data-name="Sinuous Predator"], [data-name="It That Rides as One"], [data-name="Howling Chorus"], [data-name="Erupting Dreadwolf"], [data-name="Fibrous Entangler"], [data-name="Ulvenwald Abomination"], [data-name="Dronepack Kindred"], [data-name="Abolisher of Bloodlines"] {
   visibility: visible !important;
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnMjIiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImRmYy1mdWxsbW9vbi5zdmciCiAgIHdpZHRoPSIzMjciCiAgIGhlaWdodD0iMzI3IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjIgKDVjM2U4MGQsIDIwMTctMDgtMDYpIj4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGEyOCI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczI2IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMSIKICAgICBvYmplY3R0b2xlcmFuY2U9IjEwIgogICAgIGdyaWR0b2xlcmFuY2U9IjEwIgogICAgIGd1aWRldG9sZXJhbmNlPSIxMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICAgIGlkPSJuYW1lZHZpZXcyNCIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC43NjU0NDMwOSIKICAgICBpbmtzY2FwZTpjeD0iNTQxLjMwOTU2IgogICAgIGlua3NjYXBlOmN5PSItMTM3LjUzODM2IgogICAgIGlua3NjYXBlOndpbmRvdy14PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmcyMiIgLz4KICA8cGF0aAogICAgIGQ9Ik0gMTYzLjUsMzI3IEMgMjUzLjc5ODYyLDMyNyAzMjcsMjUzLjc5ODYyIDMyNywxNjMuNSAzMjcsNzMuMjAxMzc3IDI1My43OTg2MiwwIDE2My41LDAgViA2LjM4NjcxODdlLTQgQyA3My4yMDEzNzcsMCAwLDczLjIwMTM3NyAwLDE2My41IDAsMjUzLjc5ODYyIDczLjIwMTM3NywzMjcgMTYzLjUsMzI3IFogbSAtNi40ZS00LC0zMS42MzY2MSBjIC03Mi44MjUxOTgsMCAtMTMxLjg2MjExLC01OS4wMzc1NSAtMTMxLjg2MjExLC0xMzEuODYyNzUgMCwtNzIuODI2NDc4IDU5LjAzNjkxMiwtMTMxLjg2MzM5IDEzMS44NjIxMSwtMTMxLjg2Mjc1MSA3Mi44MjY0OCwtNi4zOWUtNCAxMzEuODYzMzksNTkuMDM2MjczIDEzMS44NjI3NSwxMzEuODYyNzUxIDYuNGUtNCw3Mi44MjUyIC01OS4wMzYyNywxMzEuODYyMTEgLTEzMS44NjI3NSwxMzEuODYyMTEgeiBtIDIuMTE4NDgsLTE5LjEwNzc5IDIwLjk3NzE3LC0xLjYyMDMxIC0wLjY3MTg4LC0yLjg5NTEgYyAtMzEuODQ2NzMsLTMuODI1NjQgLTY1LjU1NTIsLTguNjM0MiAtOTMuMTEwNjk0LC0yNi4wNTY1MyAtNi44NzY1ODEsLTQuMzQyOTcgMS40NDcyMywtMTEuMTE1NDUgNi42MTcyNzksLTEwLjc1Mzk2IDE0LjM3MjY3NSwtMi4zMjYwNCAzNC44OTcwMzUsLTMuMDUwMyAzOS43NTY2ODUsLTIwLjA1OTQxIC00LjY1MjcyLC0xNC45NDEwOCAtMTcuODg3OTIsLTIzLjYyNjM4IC0zMy4yNDIyMywtMjQuMDQwMjQgLTIuMzc4NDIsLTE2Ljc1MDQ1IDguMDEzNDEsLTMzLjAzNTk0IDIuNDI5NTEsLTQ5LjgzODEyIC01LjMyNTI1LC0yMS4zNTIwOCA5Ljc3MTA0LC00Mi4wMzE2MzkgMjkuODgyMTgsLTQ4LjIzNTY5OCAxLjk2NDU1LC0xOC4xOTgzMTYgMjIuNjk2NDgsLTE4LjE5ODMxNiAzNi43MDcwMiwtMTYuNTQ0MTU2IDUuMTcwMDUsMS43MDU4OTMgOS4zNTc4MiwtMS4wMzQwMSAxMS44MzkwNiwtNS41MzE1MzcgLTIxLjcxMzU2LC0zLjU2NzYyMSAtMzcuNjg4NjYsLTI1LjY5NTA0NyAtNjEuMzE1NjksLTE4LjgxOTEwNSAtMjcuMjQ1NzQyLDcuNDk2NzMgLTQ2LjUyOTgwMSwzMC43NjE2MyAtNjMuMzMxOTgsNTIuMjY4MjY2IC0xNy42ODA5OTMsMjYuMTA4MjcgLTI2LjUyMjEyNyw1OS44MTY3MyAtMTYuNjk4NzE1LDkwLjYyOTQ2IDMuNzIyMTc5LDEwLjEzMzE2IDYuMjU1MTUyLDI0LjE5NTQ0IDE3LjUyNTc5NSwyOC40ODY2OCAxMi43MTg1MTEsLTMuOTgwODQgMTcuNzg1MDk1LC0xOS4wMjU0IDMwLjA4OTEwOSwtMjQuMDQwMjUgNi4wNDg4NjEsMy44NzczOCAxMi40MDgxMjEsOS42MTU4NCAxMC4zNDAxMDEsMTcuNjI5MjYgLTExLjY4Mzg2Nyw2LjA0ODg2IC0zMC4yNDQzMSw3LjY1MTkzIC0zNC4yMjUxNTIsMjIuMTI3NDMgNi42NjkwMTIsMTMuODU1OTggMTkuNjk3MjgsMjYuMTYgMzMuNTAxNTMyLDMzLjI5NDYgMzQuNzgyMDcsNC4zNzc0NiAxMy44NTU5OSwyLjM5NjkzIDYyLjkzMDksMy45OTg3MiB6IG0gNzEuMzMxOTgsLTE2Mi4xODMwNiBjIDcuNDYyODgsLTAuODQzNjggMTIuMTkyODksLTQuMTg2NDkgMTUuODcyOTEsLTEwLjQ1OTUyIDkuMDQ3NDMsLTE1LjMwMzIyMSAtNy45MTA1OSwtMzIuMDUzNjY4IC0yMi44NTE2OCwtMzMuMjQyODc1IC0xOS4yMzIzMiwzLjYxODcxNCAtMTguOTIxOTMsMzMuNjU2MDk1IC01LjA2NjU4LDQyLjgwNzYyNSA2LjU4MjE1LDEuMjA4MzYgMi41ODkxNywwLjY5MDQgMTIuMDQ1MzUsMC44OTQ3NyB6IG0gLTU4LjkyNzcsMjYuNTk1NTggYyAxMi45MDk0OCwtMi4wOTIyOSAyMS4zMTA1NywtNy43NzA3MiAxNi40ODI4NCwtMjEuODU1MzUgLTIuNDgxMjQsLTEzLjk1ODgxIC0yNi44ODM2MSwtMjUuNjQzMzE3IC0zMy4yOTQ2LC04LjQ3ODM3IC0zLjgyNTY0LDEwLjg1NjE0IDMuNDEyNDMsMjMuMDU3MzMgMTIuMjAxMTksMjkuMjEwMyB6IG0gNjguNjg2NjEsNzMuNzE0MjMgYyAxMS43OTY5LC0yLjI5MDkyIDcuMjM0MjMsLTAuMDY3NyAxNC40MzcxNywtNC44MzY2NiAxMC4yMzY2NCwtMTMuMDI4MjcgMjAuMjc1OTIsLTI1LjU3NjkgMjMuOTM2NzksLTQyLjg1ODcyIDEuNjEzMjgsLTcuNjE1NTIgLTAuNzcwMjQsLTE2LjczODMxIC0yLjE2NjM4LC0xNi4wMTQwNiAtOS43MTkzMSwtOS43NzE2OCAtMTUuODc2NzQsLTE4Ljg4MzYxIC0yOS4wNjAyMSwtMjQuNDY2ODggLTIyLjMzMzcxLC01LjQyODcxIC00OC44NTU4NCwxNi40OTE3OSAtNDUuMDgxOTMsMzkuNzU2NjkgNS43OTA4NCwxMS41ODA0IDEyLjU2MzMyLDIyLjY5NTg0IDE3LjM3MTI0LDM0Ljc0MjQ3IDQuMzc0OSwxMC4wNTMzNCAxMC45MjY0LDExLjIwOTk3IDIwLjU2MzMyLDEzLjY3NzE2IHogbSAtODEuMzc5NTcsLTM3LjM1NzIgYyAzLjk0MzE2LDAgNy4xMzkwNywtMy4xOTY1NSA3LjEzOTA3LC03LjEzOTA3IDAsLTMuOTQzMTYgLTMuMTk1OTEsLTcuMTM5NzEgLTcuMTM5MDcsLTcuMTM5MDcgLTMuOTQyNTMsLTYuNGUtNCAtNy4xMzkwOCwzLjE5NTkxIC03LjEzOTA4LDcuMTM5MDcgMCwzLjk0MjUyIDMuMTk2NTUsNy4xMzkwNyA3LjEzOTA4LDcuMTM5MDcgeiBtIDIyLjQ2NzgzLDIwLjI2MjUxIGMgMi44OTg5NCwwIDUuMjQ5MjUsLTIuMzUwMzEgNS4yNDg2MSwtNS4yNDkyNSA2LjRlLTQsLTIuODk5NTcgLTIuMzQ5NjcsLTUuMjQ5ODggLTUuMjQ4NjEsLTUuMjQ5ODggLTIuODk5NTcsMCAtNS4yNDk4OCwyLjM1MDMxIC01LjI0OTg4LDUuMjQ5ODggMCwyLjg5ODk0IDIuMzUwMzEsNS4yNDkyNSA1LjI0OTg4LDUuMjQ5MjUgeiBtIDE3Ljk4NTY0LDUwLjI4OTAyIGMgMTMuNzkyMTIsLTIuOTEwNDMgMjMuNjAwMjEsLTEwLjE5Mzg0IDE5Ljc5NDM2LC0yNS41MTk0MSAtMTQuODM4MjYsLTkuODc1MTQgLTMzLjgxMTkzLDkuNTEyMzggLTI0Ljc2NDUsMjQuMjk4MjcgeiIKICAgICBpZD0icGF0aDIwIgogICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgc3R5bGU9InN0cm9rZS13aWR0aDowLjMxOTMzNTk0IiAvPgo8L3N2Zz4K");
+  content: url(transform/fullmoon.svg);
   height: 21.5px;
   border-color: transparent !important;
   background: white !important;
@@ -350,12 +452,12 @@ a[data-name="Murmuring Bosk"]:before {
 }
 
 [data-name="Conduit of Emrakul"]:hover, [data-name="Aurora of Emrakul"]:hover, [data-name="Voracious Reader"]:hover, [data-name="Final Iteration"]:hover, [data-name="Extricator of Flesh"]:hover, [data-name="Grisly Anglerfish"]:hover, [data-name="Sinuous Predator"]:hover, [data-name="It That Rides as One"]:hover, [data-name="Howling Chorus"]:hover, [data-name="Erupting Dreadwolf"]:hover, [data-name="Fibrous Entangler"]:hover, [data-name="Ulvenwald Abomination"]:hover, [data-name="Dronepack Kindred"]:hover, [data-name="Abolisher of Bloodlines"]:hover {
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnMzc0MyIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZGZjLWVtcmFrdWwuc3ZnIgogICB3aWR0aD0iMzI3IgogICBoZWlnaHQ9IjMyNyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4yICg1YzNlODBkLCAyMDE3LTA4LTA2KSI+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhMzc0OSI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczM3NDciIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMTciCiAgICAgaWQ9Im5hbWVkdmlldzM3NDUiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGlua3NjYXBlOnpvb209IjIuMzYiCiAgICAgaW5rc2NhcGU6Y3g9IjUwIgogICAgIGlua3NjYXBlOmN5PSIxNjguNjQ0MDciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzM3NDMiIC8+CiAgPHBhdGgKICAgICBkPSJNIDE2My40OTkzNiwwIEMgMjUzLjc5Nzk4LDAgMzI3LDczLjIwMTM4IDMyNywxNjMuNSAzMjcsMjUzLjc5ODYyIDI1My43OTc5OCwzMjcgMTYzLjUsMzI3IDczLjIwMTM3NywzMjcgMCwyNTMuNzk4NjIgMCwxNjMuNSAwLDczLjIwMTM4IDczLjIwMTM3NywwIDE2My41LDAgWiBtIC0wLjcwNTczLDIzLjQ0MTE3IGMgLTUuNjU5OTEsMS4yMzAwOSAtOC45ODAzNyw2LjE1MzYxIC0xMi44NzM3MSwxMC4wMTA1NSAtMjYuNTA1NTIsMjkuODI1OTcgLTYwLjE4NzE2LDUxLjg0MDk5IC05NC4yNTkwMjcsNzIuMDAwNjcgLTkuNzYyNzM5LDQuMDUxNzQgLTEwLjA1NTI1LDE2LjU5NjUzIC02LjI5NzMwNSwyNC45NDM5NyAyMS42NzM5NjksNS4yNzE2IDQ0LjYxNjM0LDEuNDE1MyA2Ni4xNDI3NzIsNy4yMjQwMiA5LjYxNjQ5LDYuMTUxMDUgOS4xMjg1NCwxOC44NDIwOSA2LjU4OTgyLDI4LjU1NjI5IC02LjY4Njg5LDkuMzIzMzQgLTE5LjM3ODU4LDEzLjUyMTMzIC0yMy43NzIwMDYsMjQuNDU1MzkgNS4wNzY4MDYsMTAuMjk5ODYgMTIuNDM4MTM2LDE5Ljk3MTI3IDE4LjU4ODU0NiwyOS42MzU2NSAtMi45MjgzMSw5LjI3NTQzIC02LjQ4MjUyLDIxLjAzMzM4IDIuNzQyNDYsMjcuOTE1NzEgLTAuNDM4NzcsLTMuMzY3NzIgLTEuNjc0NiwtMTEuNjIxOTEgLTAuNzU5MzksLTEzLjM3NjM0IDAuOTE1ODYsLTEuNzUzOCA0LjE5NTQ0LC0zLjk2NjE2IDUuNzg3NjUsLTIuNzMyMjQgMS4zNjM1NiwzLjUyMjI3IDguMTUyMDEsMjAuMDYyNiAxMi4zNSwzMC4wNjkzMSAtMi4zMjQ3NywtMC45MzQzOCAtNS41NzQzMywtMS41MTMwMSAtOS4wNjE0OCwtMi44NTQyMyAtMy42MTQyNCwtMS4zODk3NSAtNy40Njc5OSwtMy41NDI3MSAtOS44NzgzNCwtNC41MTE1NyA0LjE5Nzk5LDExLjA4MDMxIDEzLjQ3Mjc5LDE3LjYxNjQ4IDIyLjk5MTU1LDIzLjgxNjA3IC0wLjQ4ODU4LDMuNjYwODcgLTEuNDY0NDcsMTAuOTM0MDYgLTIuMDAyMjMsMTQuNTQ2MzkgLTkuNjY0MzksLTAuNjM0MiAtMjEuMzMxMDEsLTQuMzkzNDIgLTguMzQ2ODEsLTE4LjU0OTU5IC0yLjkyODMxLDIuOTI5NTkgLTguNzEyNzYsNy44MDk2OCAtMTEuMjI5NzYsMTEuMzE3MjcgLTcuNDA0NzcsMTAuMzIyMjEgMTAuNTk1NTYsMTQuNzk4NjcgMTYuNjk2NzksMTkuOTIzMzcgNS4yMjM3LC00Ljg4MDczIDE0LjQwMDc4LC04LjE1MTM3IDEzLjc2NTMsLTE2Ljg0MDUgMC42ODQwMiwtMjIuNzQ2OTQgMTAuODM2OTgsLTQzLjYzOTE3IDEzLjEzMTA5LC02Ni4yMzk4NSAxLjUxMzY2LDIyLjY5ODM5IDkuMjI2MjYsNDYuOTg4MzYgMTIuNzQwMjMsNjYuMzkxMjIgMS40OTcwNSw4LjI2MjQ5IDguMjk4OSwxMS42NjIxNCAxMy40NzI3OCwxNi40NDUxNiA3LjYxNTUzLC00LjAwMTkyIDIyLjA4ODQ3LC0xMS4xMzE0MiAyMC44ODAxLC0xNC4xODc0NiAtMi45MjA2NCwtNy4zODY4OCAtOS42MDM3MSwtMTAuNzU1ODcgLTE0Ljk3MzY2LC0xNi42MTM3NyAxMS42MTgwOCwxMy42MTkwNCAyLjU0ODk0LDE4LjI5MjIgLTcuMDY4ODIsMTguMjkxNTYgLTEuMDY3MjIsNi40ZS00IC0yLjIxMTcyLC0zLjgxMjg3IC0yLjg5ODI5LC03LjU1MTAyIC0wLjQ3NjQ1LC0yLjU5MzY0IC0wLjY3NjM2LC01LjEzNjgzIC0xLjI2MDEsLTcuNzEzODggMTAuOTM0NywtNC4yNDY1MiAxOS41NzQ2NSwtMTEuOTEwNTkgMjMuNDc5NDksLTIzLjEzNzggLTQuNjg1OTMsMS44NTUzNCAtMTQuMTU1NTIsNS41MTYyMSAtMTguODkwNjQsNy4zNzA5MSA1LjkwNjQ0LC05LjkwODk5IDYuMjM2LC0yMy4wMTA3MSAxNi40MjUzNywtMzEuMzU4MTUgMy41NDY1NCwtMi45MDQwNCAxLjMxNTY2LDIwLjUxMDMxIDMuNDkwMzQsMTYuNDc0NTQgNi41Nzc2OCwtMTIuMjAzMSA0LjM0NDg4LC0xNy42NzQ2IDAuODI5NjMsLTI3LjQzNzk4IDYuMTUxMDUsLTkuNzYyMSAxMy4xODAyOCwtMTkuMDM2ODkgMTguMzU0MTYsLTI5LjM4NTkzIC01LjIyMzA2LC0xMC4zNDc3NiAtMTYuODQwNSwtMTUuMDM0MzQgLTIzLjgyMTE5LC0yMy45NjY4IC0yLjczMjg3LC05LjcxNDIgLTMuMjIxNDYsLTIyLjQwNTg5IDYuMjk3MzEsLTI4LjcwMjU2IDIxLjYyNDE1LC01LjkwNjQzIDQ0Ljc3NjY0LC0xLjYzODgzIDY2LjUzMywtNy4xNzYxMSAyLjQ0NDg0LC0wLjYyMjA3IDIuNzQ4MjEsLTIuMjkwOTIgMy4yMDI5NCwtNC44NzA1MSAxLjAxNDg1LC01Ljc0ODY5IDIuMjgyNjEsLTEzLjAwNjU2IC0xLjg4NTM2LC0xNS41MzMxNCBDIDI0OS40MjI0NCw5Mi43NjA3IDIyMC4yNjA2OSw3NS44NzE2NiAxOTUuNjA5ODcsNTMuMDc0OTEgMTg0LjcyNDM0LDQ0LjA0NDczIDE3Ni4zMjgzNiwzMi40NzU4MyAxNjUuMjk2NTgsMjMuNTkxOSBaIG0gNi4wNjYxLDE3Ni42MTE5NCBjIDcuMTI2OTQsOS4xNzcwNyAxNC4zNTE2LDE4LjM1NDE1IDIxLjk2NjQ4LDI3LjE4OTU0IC0yLjUzODcyLDcuOTU2NTcgLTUuMTc0NTEsMTUuODYzOTcgLTguMDA1NzUsMjMuNzIyODMgLTYuODMzNzksLTE2LjMwMzM4IC0xMS43NjM2OSwtMzMuMzM5MzIgLTEzLjk2MDczLC01MC45MTIzNyB6IG0gLTExLjk1OTEzLC0wLjI0Mzk4IGMgLTIuMTk2MzksMTcuNTczMDYgLTYuOTgwMDQsMzQuNjA4OTkgLTEzLjY2ODIxLDUwLjk2MDkxIC0yLjg3OTc3LC03LjU2NTcxIC01LjY2MTgzLC0xNS4xODA1OSAtOC40OTM3LC0yMi43NDY5NCAtMC4wMjExLC0wLjA3MTUgMTQuOTM3MjYsLTE4LjY5NTIgMjIuMTYxOTEsLTI4LjIxMzk3IHogbSAyMS43MjE4NywtMjEuNjczMzMgYyAxMC40NDYxMiwyLjk3NzQ5IDIwLjUwMjAxLDcuMTc1NDggMjkuODczODgsMTIuNjkxNjkgLTQuMjQ2NTMsNy4yNzMyIC04LjYzOTk1LDE0LjQ0ODY4IC0xMy4wODE5MiwyMS42MjQxNSAtNi43ODUyNSwtMTAuODM2MzQgLTEyLjQ5NjI1LC0yMi4zMDc1MyAtMTYuNzkxOTYsLTM0LjMxNTg0IHogbSAtMzEuNDM2MDcsMCBjIC00LjI0NjUzLDEyLjA1Njg1IC0xMC41NzA2NSwyMi41MjQ2OCAtMTcuMzA3MzYsMzMuMzYxMDMgLTQuNDQxOTcsLTcuMTc1NDggLTguMjcwODEsLTEzLjQ0NDY4IC0xMi41NjY1MSwtMjAuNjY5MzQgOS40MjEwNSwtNS40NjcwMyAxOS40Mjc3NiwtOS43MTQyIDI5Ljg3Mzg3LC0xMi42OTE2OSB6IgogICAgIGlkPSJwYXRoMzc0MSIKICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgIHN0eWxlPSJzdHJva2Utd2lkdGg6MC4zMTkzMzU5NCIgLz4KPC9zdmc+Cg==") !important;
+  content: url(transform/emrakul.svg) !important;
 }
 
 [data-name="Perfected Form"], [data-name="Infectious Curse"], [data-name="Werewolf Ransacker"], [data-name="Avacyn, the Purifier"], [data-name="Arlinn, Embraced by the Moon"], [data-name="Ancient of the Equinox"], [data-name="Lunarch Inquisitors"], [data-name="Lord of Lineage"], [data-name="Neck Breaker"], [data-name="Chalice of Death"], [data-name="Markov's Servant"], [data-name="Homicidal Brute"], [data-name="Unholy Fiend"], [data-name="Branded Howler"], [data-name="Bearer of Overwhelming Truths"], [data-name="Nightfall Predator"], [data-name="Insectile Aberration"], [data-name="Krallenhorde Howler"], [data-name="Withengar Unbound"], [data-name="Insidious Mist"], [data-name="Garruk, the Veil-Cursed"], [data-name="Gatstaf Ravagers"], [data-name="Gatstaf Howler"], [data-name="Vildin-Pack Alpha"], [data-name="Krallenhorde Wantons"], [data-name="Westvale Cult Leader"], [data-name="Bane of Hanweir"], [data-name="Scrounged Scythe"], [data-name="Heir to the Night"], [data-name="Lone Wolf of the Natterknolls"], [data-name="Hinterland Scourge"], [data-name="Timber Shredder"], [data-name="Ravager of the Fells"], [data-name="Wildblood Pack"], [data-name="Flameheart Werewolf"], [data-name="Demon-Possessed Witch"], [data-name="Terror of Kruin Pass"], [data-name="Silverpelt Werewolf"], [data-name="Lambholt Butcher"], [data-name="Unhallowed Cathar"], [data-name="Ludevic's Abomination"], [data-name="Howlpack Alpha"], [data-name="Tovolar's Magehunter"], [data-name="Ashmouth Blade"], [data-name="Wayward Disciple"], [data-name="Archdemon of Greed"], [data-name="Merciless Predator"], [data-name="Werewolf of Ancient Hunger"], [data-name="Moonscarred Werewolf"], [data-name="Stalking Vampire"], [data-name="Skin Shedder"], [data-name="One of the Pack"], [data-name="Ghastly Haunting"], [data-name="Persistent Nightmare"], [data-name="Awoken Horror"], [data-name="Stonewing Antagonizer"], [data-name="Thraben Militia"], [data-name="Rampaging Werewolf"], [data-name="Incited Rabble"], [data-name="Ulrich, Uncontested Alpha"], [data-name="Ulvenwald Primordials"], [data-name="Unimpeded Trespasser"], [data-name="Ironfang"], [data-name="Moonrise Intruder"], [data-name="Howlpack of Estwald"], [data-name="Ormendahl, Profane Prince"], [data-name="Krallenhorde Killer"] {
   visibility: visible !important;
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxMCIKICAgd2lkdGg9IjMyNyIKICAgaGVpZ2h0PSIzMjciCiAgIHZpZXdCb3g9IjAgMCAzMjcgMzI3IgogICBzb2RpcG9kaTpkb2NuYW1lPSJkZmMtc3VuLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4yICg1YzNlODBkLCAyMDE3LTA4LTA2KSI+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhMTYiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMxNCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEiCiAgICAgb2JqZWN0dG9sZXJhbmNlPSIxMCIKICAgICBncmlkdG9sZXJhbmNlPSIxMCIKICAgICBndWlkZXRvbGVyYW5jZT0iMTAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAxNyIKICAgICBpZD0ibmFtZWR2aWV3MTIiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGlua3NjYXBlOnpvb209IjIuNTkzOTk0MiIKICAgICBpbmtzY2FwZTpjeD0iMTI4LjQ1NDc3IgogICAgIGlua3NjYXBlOmN5PSIxOTQuNjgwNDciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzEwIiAvPgogIDxwYXRoCiAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtzdHJva2Utd2lkdGg6MC42MzkzODk2OSIKICAgICBkPSJNIDE0NC4zMzAwOSwzMjYuMjY2MjMgQyAxMDYuMjYyNjQsMzIxLjE3OTkgNzMuMzcyNzQ2LDMwNS4wOTA1MyA0Ny4wMTEyNzgsMjc4LjY1ODk2IDIyLjU3OTg5NCwyNTQuMTYyNjIgNi43MzQ1NzEzLDIyMi4zMzAwMSAxLjIwMzk5ODUsMTg2LjYzNCAtMC40MDM0NTc5MiwxNzYuMjU4OTMgLTAuNDAwODY5MTUsMTUwLjk2NTk1IDEuMjA4OTk4NSwxNDAuNjIgOC41OTc0NzYzLDkzLjEyODk5MyAzNC41NTgxNzQsNTIuMzQ2NjM2IDczLjY5MDY2NSwyNi43NTY2MjUgMTI5LjM3MTgyLC05LjY1NTExODEgMjAwLjc3NjQ3LC04Ljg0NTAyNjkgMjU2LjI1NDg1LDI4LjgyNzgyOCBjIDM3LjUwNDU2LDI1LjQ2NzYzOCA2Mi4xODQxMiw2NS4xNDg2MiA2OS41MjkxLDExMS43OTIxNzIgMS42MTAzMywxMC4yMjYyMSAxLjYyNDA5LDM1LjYyNjQyIDAuMDI0OCw0NS42OTQ0NiAtMy4zMDU3NiwyMC44MTAzNiAtOS43MTYzLDM5Ljk5MjU0IC0xOC43OTQ3OSw1Ni4yMzkzNCAtMjUuMjg4MzcsNDUuMjU1OTIgLTY3Ljk3NDQ0LDc0Ljg1NzM0IC0xMTkuODQ2MjUsODMuMTA5NTYgLTkuMjIzMSwxLjQ2NzI4IC0zMy43ODExLDEuODEyOTEgLTQyLjgzNzMsMC42MDI4NyB6IG0gMzguODA2NDMsLTYuNDEzMDUgYyAyNC44MzM5MywtMy4yNTEyMiA0Ni44MDg1LC0xMS40NTA1MyA2Ny41MzU2MiwtMjUuMTk5MzYgMzYuNTAzMjEsLTI0LjIxMzUyIDYwLjQwNzI3LC02MS4wMDUyMiA2OC4zODI2OSwtMTA1LjI1MDU5IDEuMzA5ODEsLTcuMjY2NDYgMS40NzgzNCwtMTAuMjA1IDEuNDc4MzQsLTI1Ljc3NjIzIDAsLTE1LjU3MTIzIC0wLjE2ODUzLC0xOC41MDk3NyAtMS40NzgzNCwtMjUuNzc2MjMgQyAzMTQuMTcyODcsMTEwLjc2NzA1IDMwMy43MDA4MSw4Ny4xNTA3MTcgMjg3LjI2ODM3LDY2LjE2Njc4IDI2Ni41Mzk5OCwzOS42OTY5NzIgMjM1LjYzNzEzLDE5LjU3OTY1IDIwMi44Mzk5NSwxMS4yMDUwNjkgMTg3LjY1ODM4LDcuMzI4NTM2NCAxODIuMzU2MTIsNi43MzEzNTM5IDE2My4xNzg4LDYuNzM4MTEzMiAxNDMuODc5NzMsNi43NDQ5MDM1IDEzNy4zMDg4Myw3LjU1NTQ0MiAxMjEuNTMxNzQsMTEuODc1MzIxIDg1LjA5NDA4OCwyMS44NTIyMDkgNTMuMzIyOTMsNDQuOTExOTgyIDMxLjk3MDIxMyw3Ni44Nzk4MzcgMjAuMjg4MTYzLDk0LjM2OTQyNCAxMS45NjEyNTgsMTE1LjQ0OTk0IDguMDIyMzQ5NSwxMzcuNTA2NjMgNi4wNTA4OTYsMTQ4LjU0NjE0IDUuNTYxNzc4NCwxNzEuMzk2MyA3LjA1MjgzMDEsMTgyLjc5OTUgYyAzLjU5ODQ5OTksMjcuNTIwNDEgMTMuNzYxMzYyOSw1Mi44OTc0NCAyOS44NDIwMjM5LDc0LjUxNjYzIDI1LjYwNzkxNSwzNC40Mjc4MyA2My41MzczMDYsNTYuNjc2MzEgMTA2LjYyOTM5Niw2Mi41NDYyNyA4Ljg3NjE2LDEuMjA5MSAzMC4zNDQ1MiwxLjIwNDExIDM5LjYxMjI3LC0wLjAwOSB6IE0gMTQ1LjkwNywzMDIuNjI3NCBDIDExOS40MTUzMSwyOTguODYzOSA5Ni4zODg4NTIsMjg5LjEzNDE4IDc2LjA2OTMyNSwyNzMuMTE3ODUgNzAuMjA5NzY4LDI2OC40OTkxOSA1OC43NzIyNDEsMjU3LjExODcgNTQuMDIyOTk3LDI1MS4xODE0MiAyOC40MzQ4OTMsMjE5LjE5MjQ4IDE4LjAxNDE5MywxNzYuNDcyMDcgMjYuMDQwNywxMzYuNDY1OTYgMzguMjYzMDA0LDc1LjU0Njk5MSA4Ny44Mjk1ODgsMzAuNjgzMTcgMTUwLjAyMzI1LDI0LjI0NjU2OCBjIDkuODE3ODEsLTEuMDE2MDczIDI2Ljk4MTA0LC0wLjQxMzgzNCAzNi44MjQyOSwxLjI5MjEyNSAyNC40ODk1Myw0LjI0NDMzOCA0Ny40MjQ0OSwxNC43NTQ3NjMgNjUuODg4NywzMC4xOTQ4NiA2LjY3NzcxLDUuNTg0MDExIDE3LjI5MjkxLDE2LjQwNTEzNSAyMS41MTkyOCwyMS45MzY3MjkgMTkuMTM5NDgsMjUuMDUwMjY4IDI5LjMzNjU2LDU0LjkyNzkyOCAyOS4zMzY1Niw4NS45NTY3MTggMCwzMS43Njg5MyAtMTAuNjE0MjgsNjIuMTY4MzkgLTMwLjQ5NzYyLDg3LjM0NTU4IC00LjYyMzA4LDUuODUzOTUgLTE2LjAxNDQ5LDE3LjI4MDUyIC0yMS45NTc0NiwyMi4wMjUyMSAtMTguMzAwMzYsMTQuNjEwNTMgLTQwLjQ3MTI2LDI0LjUxNjg1IC02NC4yODk0NiwyOC43MjU1OCAtMTAuMDQxNDMsMS43NzQzNiAtMzEuNDgxNzEsMi4yNDc3OSAtNDAuOTQwNTQsMC45MDQwMyB6IG0gNTMuNjM1MzUsLTI5Ljg5NjEzIGMgNC41OTk3OCwtMTIuMDM5MTkgMTQuNDUyMzcsLTIwLjQ4ODEgMjYuOTg0NywtMjMuMTQwMjUgMi40NTI3NSwtMC41MTkwNSA1Ljc1NDkxLC0wLjk0MzczIDcuMzM4MTYsLTAuOTQzNzMgNi41NDg1NiwwIDE2LjEyMDA4LDMuMDg2MjQgMjAuOTIzNzMsNi43NDY2NiBsIDIuMTA2NjgsMS42MDUzIC0xLjkzNzk0LC0yLjg2ODc1IGMgLTMuODE3OTUsLTUuNjUxNjkgLTYuMzU3MjQsLTEzLjcyMTk5IC02LjM1NzI0LC0yMC4yMDQzMyAwLC00LjcxNTY5IDEuNzI4MzQsLTExLjUxMjQ3IDQuMjI1MjksLTE2LjYxNjE3IDIuNzIxOTgsLTUuNTYzNjQgOS40NjI3NSwtMTIuNjgyMTUgMTQuNjMxODcsLTE1LjQ1MTgzIDQuODczMjMsLTIuNjExMTMgMTIuMDE3MzgsLTQuMzU3NzIgMTcuODkwMjksLTQuMzczNzggbCA1LjEzMDQyLC0wLjAxNDEgLTIuNTU4NzgsLTEuMTc0NzkgYyAtNi4zOTQxNCwtMi45MzU2OCAtMTIuOTY4NDEsLTkuNDM0NjQgLTE2LjM4NTkzLC0xNi4xOTgyMSAtNS4wMjc1MywtOS45NDk5NCAtNS4wNzc3OSwtMjIuODM5NTIgLTAuMTI3NjEsLTMyLjcyMTM1IDMuNTQ4NTYsLTcuMDgzODIgOS45MDM2MywtMTMuNDMzNzkgMTYuMzg3OTYsLTE2LjM3NDgzIGwgMi42ODQzNiwtMS4yMTc1MyAtNS4xNDMwOCwtMC4wMTQxIGMgLTE3LjQzNDc3LC0wLjA0NzYgLTMyLjIxNTM3LC0xMi4wNjA2MSAtMzUuNzk0NjUsLTI5LjA5MjMzIC0wLjUxNzA4LC0yLjQ2MDQ4IC0wLjk0MDE0LC01Ljc2Nzc0IC0wLjk0MDE0LC03LjM0OTQ3MiAwLC02LjUyMzI5NCAzLjA4ODgxLC0xNi4xMDQxMTcgNi43MjkxMSwtMjAuODcyMjM0IGwgMS41ODI4NCwtMi4wNzMyMDcgLTMuMzY3NDcsMi4yMTc5ODQgYyAtMjAuNjIxNDIsMTMuNTgyMzQ1IC00OC44NDI0OCwyLjQ0NDI5IC01NS4xNTUwNywtMjEuNzY4MTQ2IC0wLjU0MzAyLC0yLjA4MjgxNiAtMC45OTM2NCwtNi4wOTkxMTIgLTEuMDAxMzcsLTguOTI1MTA0IGwgLTAuMDE0LC01LjEzODExNiAtMS4yNDg4NywyLjc0OTEyMiBjIC0zLjkzNzY2LDguNjY3OTY2IC0xMy40NzgxNCwxNi4zODM2ODMgLTIzLjQ3NDk5LDE4Ljk4NTAzOCAtNC43NDI4OSwxLjIzNDE4MiAtMTMuNjE5NDEsMS4yMTg5NzkgLTE4LjQyNTE1LC0wLjAzMTU1IC04Ljg4NzQ2LC0yLjMxMjYxOCAtMTcuNDYwNjIsLTguODUyMzU4IC0yMi4yMzE4NywtMTYuOTU4NzMzIGwgLTIuMzk4ODYsLTQuMDc1NjY3IHYgNC44MDQwODQgYyAwLDE3LjEzNDk0MiAtMTEuOTM0NDYsMzEuNjMyOTU3IC0yOS4xOTgyMSwzNS40NzAxMDQgLTguNzYzMzY4LDEuOTQ3Nzk0IC0xOC42NDQyMTUsMC4xNTk0OTYgLTI2LjI0ODM5MywtNC43NTA2MTQgbCAtMy44NTg3ODcsLTIuNDkxNjY1IDIuMDk2NDI1LDMuMTEyMjg1IGMgOS40OTcxOTgsMTQuMDk5MjY0IDcuMzQ0NDkxLDMzLjQxNTM1MSAtNS4wODU0NTUsNDUuNjMxMjAxIC03LjE5NDgzMiw3LjA3MDkxIC0xNS42MjcwMDYsMTAuNTQzMDggLTI1LjYwMzkzNywxMC41NDMwOCBIIDM2LjU4NzYyIGwgMy40NDY3MzIsMS43MTU5MiBjIDguMDIxNDMsMy45OTM0MyAxNS44NDkxMjIsMTMuODQzMzcgMTguMjE2MTI3LDIyLjkyMjIxIDEuMjUzMzE1LDQuODA3MTggMS4yNTMzMTUsMTMuNjU5MzggMCwxOC40NjY1NiAtMi4zNDMyODcsOC45ODc4OCAtOC43ODY5ODYsMTcuNDI2NzIgLTE2Ljk4MzEyMiwyMi4yNDE1NyBsIC00LjA3OTU4MiwyLjM5NjU3IGggNC44MDg2OTUgYyA5LjgwMTQwNCwwIDE4LjEzODQ5NCwzLjQ2MTAyIDI1LjIzOTU5MSwxMC40Nzc4NCAxMi41NDE5MjIsMTIuMzkzMDUgMTQuNjc2OTg4LDMxLjU1MjUzIDUuMTAwNDE3LDQ1Ljc2OTYzIGwgLTIuMTQ1NzIxLDMuMTg1NDcgMi4wNjIxMzEsLTEuNTcxMzUgYyA0Ljc1OTg0OSwtMy42MjcwNCAxNC4zNTc1NDksLTYuNzEyNzIgMjAuODc5MTkyLC02LjcxMjcyIDEuNTgzMjQ3LDAgNC44OTM2NzUsMC40MjI2NSA3LjM1NjQ5LDAuOTM5MjQgMTYuOTI5MTMsMy41NTA5MSAyOS4xMDYxOCwxOC4zNzIwNyAyOS4xMDYxOCwzNS40MjYyOCB2IDQuODA0MDggbCAyLjM5ODg2LC00LjExMDc3IGMgNi41MzQyMiwtMTEuMTk3MjkgMTguMzQwNzgsLTE3LjkwODUyIDMxLjUwNTAyLC0xNy45MDg1MiAxMC40NjI3MiwwIDE4Ljk2MjQzLDMuNjMwNDQgMjYuMTE3MjIsMTEuMTU1MzcgMi40MTU0NCwyLjU0MDQxIDUuMDgzNjIsNi4wMzU3NSA1LjkyOTI3LDcuNzY3NDIgbCAxLjUzNzU2LDMuMTQ4NTEgMC40MDIwOCwtNi40MDIyOSBjIDAuMjg4NDYsLTQuNTkzMjggMC44Njk4NiwtNy42MjY2NCAyLjA1NzU5LC0xMC43MzUzMyB6IG0gLTQ1LjMxOTMsLTE5LjY1MjI2IGMgLTExLjA0MDY3LC0xLjI0MDQ0IC0yMS4xOTI2MSwtNC4zMTAzIC0zMS42NjQ5NiwtOS41NzUyIC0xNi41ODY2MiwtOC4zMzg4IC0zMS4wMjM3NzIsLTIyLjkyNzg2IC0zOS41MTgzMjYsLTM5LjkzNDEgLTE0LjgwNjM3NywtMjkuNjQyNjQgLTExLjkzNTEwMSwtNjUuMjA0OTggNy40NTc5MTcsLTkyLjM3MDM2IDQuOTgxNDY0LC02Ljk3NzkzIDEzLjYxMzgwOSwtMTUuNTUzNjM2IDIwLjkwNDYwOSwtMjAuNzY3Mzg5IDIzLjA3NjM2LC0xNi41MDIyNTMgNTMuOTIwNTEsLTIxLjAzNTM0OSA4MC45MjIxLC0xMS44OTI5NTIgMTMuNDY0ODUsNC41NTkwMzEgMjMuOTY3NDMsMTEuMTgyNzkxIDM0LjUxOTg5LDIxLjc3MDk5MSAxMS4wMDExNywxMS4wMzg0MiAxNy4yNTQzMSwyMS4wNDY1MiAyMS45OTE2MSwzNS4xOTczNCAzLjI0NTE5LDkuNjkzNzYgNC40Mjg0NiwxNy4yMDcyMiA0LjQyODQ2LDI4LjExOTY2IDAsMTAuODUyNDggLTEuMTgzMzIsMTguNDI3MjYgLTQuMzYwODQsMjcuOTE1MDQgLTQuNTcwNzgsMTMuNjQ3OTMgLTEwLjkyMjg4LDI0LjA4NDAyIC0yMC45OTg1NSwzNC40OTkyNCAtMTYuMzk4OTksMTYuOTUxNjQgLTM3LjU2MTcxLDI2LjMxNTkzIC02MS43NTk3MywyNy4zMjgwNyAtMy43NDI1NSwwLjE1NjU1IC05LjEwNzUyLDAuMDI1OSAtMTEuOTIyMTgsLTAuMjkwMzQgeiBtIDIwLjE1MDQyLC03Ljk0MTgxIGMgMjAuNDkzMTIsLTIuNzY2MDYgMzkuMzQ3NjIsLTEzLjExMDcgNTIuMDYyNzQsLTI4LjU2NDU3IDguMjQ5ODksLTEwLjAyNjg3IDEzLjgwMzgyLC0yMC42ODc5OSAxNi42ODE0NiwtMzIuMDIxMTYgNy4yMzQzOSwtMjguNDkxNDQgLTAuNDI2MDQsLTU3LjUyNDYzIC0yMC42NzE1MywtNzguMzQ1NzIgLTExLjM5MzgzLC0xMS43MTc3NTYgLTI1LjI5OTYsLTE5LjM3MjgzNyAtNDIuMDA5MDUsLTIzLjEyNTgyNCAtOS4wMzA1MSwtMi4wMjgyNzEgLTI0LjA1NjcyLC0yLjA2MDg4NCAtMzMuNDAwMTgsLTAuMDcyNSAtMTYuMzI0MDgsMy40NzM5NjcgLTMwLjA2NzI3LDEwLjg5NDQ1NSAtNDEuNjk4NzUsMjIuNTE0Nzk0IC0yMC43OTIzMjIsMjAuNzcyNDIgLTI4Ljg2MjYxOCw1MC40MzA1MSAtMjEuNDYyNzMzLDc4Ljg3NDk4IDQuMjAwOTQ0LDE2LjE0ODA4IDE0LjU1MzQ4NiwzMi41MzU0OCAyNi43NDI0NDMsNDIuMzMxNjEgMTguODA0ODgsMTUuMTEzMjcgNDAuOTAxMDcsMjEuNDkzMTggNjMuNzU1NiwxOC40MDgzOCB6IgogICAgIGlkPSJwYXRoMjAiCiAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KPC9zdmc+Cg==");
+  content: url(transform/sun.svg);
   height: 21.5px;
   border-color: transparent !important;
   background: white !important;
@@ -368,5 +470,5 @@ a[data-name="Murmuring Bosk"]:before {
 }
 
 [data-name="Perfected Form"]:hover, [data-name="Infectious Curse"]:hover, [data-name="Werewolf Ransacker"]:hover, [data-name="Avacyn, the Purifier"]:hover, [data-name="Arlinn, Embraced by the Moon"]:hover, [data-name="Ancient of the Equinox"]:hover, [data-name="Lunarch Inquisitors"]:hover, [data-name="Lord of Lineage"]:hover, [data-name="Neck Breaker"]:hover, [data-name="Chalice of Death"]:hover, [data-name="Markov's Servant"]:hover, [data-name="Homicidal Brute"]:hover, [data-name="Unholy Fiend"]:hover, [data-name="Branded Howler"]:hover, [data-name="Bearer of Overwhelming Truths"]:hover, [data-name="Nightfall Predator"]:hover, [data-name="Insectile Aberration"]:hover, [data-name="Krallenhorde Howler"]:hover, [data-name="Withengar Unbound"]:hover, [data-name="Insidious Mist"]:hover, [data-name="Garruk, the Veil-Cursed"]:hover, [data-name="Gatstaf Ravagers"]:hover, [data-name="Gatstaf Howler"]:hover, [data-name="Vildin-Pack Alpha"]:hover, [data-name="Krallenhorde Wantons"]:hover, [data-name="Westvale Cult Leader"]:hover, [data-name="Bane of Hanweir"]:hover, [data-name="Scrounged Scythe"]:hover, [data-name="Heir to the Night"]:hover, [data-name="Lone Wolf of the Natterknolls"]:hover, [data-name="Hinterland Scourge"]:hover, [data-name="Timber Shredder"]:hover, [data-name="Ravager of the Fells"]:hover, [data-name="Wildblood Pack"]:hover, [data-name="Flameheart Werewolf"]:hover, [data-name="Demon-Possessed Witch"]:hover, [data-name="Terror of Kruin Pass"]:hover, [data-name="Silverpelt Werewolf"]:hover, [data-name="Lambholt Butcher"]:hover, [data-name="Unhallowed Cathar"]:hover, [data-name="Ludevic's Abomination"]:hover, [data-name="Howlpack Alpha"]:hover, [data-name="Tovolar's Magehunter"]:hover, [data-name="Ashmouth Blade"]:hover, [data-name="Wayward Disciple"]:hover, [data-name="Archdemon of Greed"]:hover, [data-name="Merciless Predator"]:hover, [data-name="Werewolf of Ancient Hunger"]:hover, [data-name="Moonscarred Werewolf"]:hover, [data-name="Stalking Vampire"]:hover, [data-name="Skin Shedder"]:hover, [data-name="One of the Pack"]:hover, [data-name="Ghastly Haunting"]:hover, [data-name="Persistent Nightmare"]:hover, [data-name="Awoken Horror"]:hover, [data-name="Stonewing Antagonizer"]:hover, [data-name="Thraben Militia"]:hover, [data-name="Rampaging Werewolf"]:hover, [data-name="Incited Rabble"]:hover, [data-name="Ulrich, Uncontested Alpha"]:hover, [data-name="Ulvenwald Primordials"]:hover, [data-name="Unimpeded Trespasser"]:hover, [data-name="Ironfang"]:hover, [data-name="Moonrise Intruder"]:hover, [data-name="Howlpack of Estwald"]:hover, [data-name="Ormendahl, Profane Prince"]:hover, [data-name="Krallenhorde Killer"]:hover {
-  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxMCIKICAgd2lkdGg9IjMyNyIKICAgaGVpZ2h0PSIzMjciCiAgIHZpZXdCb3g9IjAgMCAzMjcgMzI3IgogICBzb2RpcG9kaTpkb2NuYW1lPSJkZmMtbW9vbi5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjAuOTIuMiAoNWMzZTgwZCwgMjAxNy0wOC0wNikiPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTE2Ij4KICAgIDxyZGY6UkRGPgogICAgICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZGVmcwogICAgIGlkPSJkZWZzMTQiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMTciCiAgICAgaWQ9Im5hbWVkdmlldzEyIgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIzLjY2ODQ2MTgiCiAgICAgaW5rc2NhcGU6Y3g9IjE5Ny45NTEwNiIKICAgICBpbmtzY2FwZTpjeT0iMjUyLjM3MDk1IgogICAgIGlua3NjYXBlOndpbmRvdy14PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmcxMCIgLz4KICA8cGF0aAogICAgIHN0eWxlPSJmaWxsOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjAuNjM5Mzg5NjkiCiAgICAgZD0iTSAxNDQuMzMwMDksMzI2LjI2NjIzIEMgMTA2LjI2MjY1LDMyMS4xNzk5IDczLjM3Mjc0OCwzMDUuMDkwNTMgNDcuMDExMjcxLDI3OC42NTg5NiAyMi41Nzk4OTcsMjU0LjE2MjYyIDYuNzM0NTc0OSwyMjIuMzMgMS4yMDQwMDIyLDE4Ni42MzM5OSAtMC40MDM0NjQxNSwxNzYuMjU4OTIgLTAuNDAwODY1MzgsMTUwLjk2NTk1IDEuMjA4OTk5OSwxNDAuNjIgOC41OTc0NzA0LDkzLjEyODk5NSAzNC41NTgxNzcsNTIuMzQ2NjM4IDczLjY5MDY2NiwyNi43NTY2MjUgMTI5LjM3MTgzLC05LjY1NTExODYgMjAwLjc3NjQ3LC04Ljg0NTAyNzYgMjU2LjI1NDg1LDI4LjgyNzgyOSBjIDM3LjUwNDU2LDI1LjQ2NzYzOCA2Mi4xODQxMiw2NS4xNDg2MiA2OS41MjkxLDExMS43OTIxNzEgMS42MTAzMywxMC4yMjYxOSAxLjYyNDA5LDM1LjYyNjQxIDAuMDI0OCw0NS42OTQ0NSAtMy4zMDU3NiwyMC44MTAzNiAtOS43MTYzLDM5Ljk5MjU0IC0xOC43OTQ3OSw1Ni4yMzkzNSAtMjUuMjg4MzcsNDUuMjU1OTIgLTY3Ljk3NDQ0LDc0Ljg1NzM0IC0xMTkuODQ2MjUsODMuMTA5NTYgLTkuMjIzMDksMS40NjcyOCAtMzMuNzgxMSwxLjgxMjkgLTQyLjgzNzMsMC42MDI4NyB6IG0gMzguODA2NDQsLTYuNDEzMDUgYyAyNC44MzM5MiwtMy4yNTEyMiA0Ni44MDg0OSwtMTEuNDUwNTMgNjcuNTM1NjIsLTI1LjE5OTM2IDM2LjUwMzIsLTI0LjIxMzUyIDYwLjQwNzI2LC02MS4wMDUyMyA2OC4zODI2OCwtMTA1LjI1MDYgMS4zMDk4MSwtNy4yNjY0NiAxLjQ3ODM0LC0xMC4yMDUgMS40NzgzNCwtMjUuNzc2MjMgMCwtMTUuNTcxMjMgLTAuMTY4NTMsLTE4LjUwOTc2IC0xLjQ3ODM0LC0yNS43NzYyMyBDIDMxNC4xNzI4NywxMTAuNzY3MDQgMzAzLjcwMDgxLDg3LjE1MDcyMyAyODcuMjY4MzcsNjYuMTY2NzgzIDI2Ni41Mzk5OCwzOS42OTY5NzMgMjM1LjYzNzEzLDE5LjU3OTY1IDIwMi44Mzk5NSwxMS4yMDUwNjkgMTg3LjY1ODM4LDcuMzI4NTM2OSAxODIuMzU2MTIsNi43MzEzNTQzIDE2My4xNzg4LDYuNzM4MTEzNyAxNDMuODc5NzQsNi43NDQ5MDM5IDEzNy4zMDg4NCw3LjU1NTQ0MjUgMTIxLjUzMTc1LDExLjg3NTMyMSA4NS4wOTQwODksMjEuODUyMjEgNTMuMzIyOTMyLDQ0LjkxMTk4MyAzMS45NzAyMTYsNzYuODc5ODQgMjAuMjg4MTY2LDk0LjM2OTQyNiAxMS45NjEyNjIsMTE1LjQ0OTk0IDguMDIyMzUzMSwxMzcuNTA2NjIgNi4wNTA4OTk3LDE0OC41NDYxNCA1LjU2MTc4MiwxNzEuMzk2MjkgNy4wNTI4MzM3LDE4Mi43OTk0OSBjIDMuNTk4NTAwMywyNy41MjA0MSAxMy43NjEzNjIzLDUyLjg5NzQ1IDI5Ljg0MjAyMzMsNzQuNTE2NjQgMjUuNjA3OTE0LDM0LjQyNzgyIDYzLjUzNzMxMyw1Ni42NzYzMSAxMDYuNjI5NDAzLDYyLjU0NjI2IDguODc2MTUsMS4yMDkxMSAzMC4zNDQ1MSwxLjIwNDEyIDM5LjYxMjI3LC0wLjAwOSB6IE0gMTQ1LjkwNzAxLDMwMi42Mjc0IEMgMTE5LjQxNTMyLDI5OC44NjM5IDk2LjM4ODg1MywyODkuMTM0MTggNzYuMDY5MzI2LDI3My4xMTc4NSA3MC4yMDk3NywyNjguNDk5MTkgNTguNzcyMjQ0LDI1Ny4xMTg2OSA1NC4wMjI5OSwyNTEuMTgxNDEgMjguNDM0ODg2LDIxOS4xOTI0NyAxOC4wMTQxOTYsMTc2LjQ3MjA3IDI2LjA0MDcwMywxMzYuNDY1OTUgMzguMjYyOTk3LDc1LjU0Njk5NCA4Ny44Mjk1OSwzMC42ODMxNzEgMTUwLjAyMzI2LDI0LjI0NjU2OCBjIDkuODE3ODEsLTEuMDE2MDczIDI2Ljk4MTAzLC0wLjQxMzgzMyAzNi44MjQyOSwxLjI5MjEyNSAyNC40ODk1Miw0LjI0NDMzOSA0Ny40MjQ0OSwxNC43NTQ3NjQgNjUuODg4NywzMC4xOTQ4NjIgNi42Nzc3LDUuNTg0MDExIDE3LjI5MjksMTYuNDA1MTM2IDIxLjUxOTI3LDIxLjkzNjczIDE5LjEzOTQ4LDI1LjA1MDI1NSAyOS4zMzY1Nyw1NC45Mjc5MTUgMjkuMzM2NTcsODUuOTU2NzA1IDAsMzEuNzY4OTMgLTEwLjYxNDI5LDYyLjE2ODM5IC0zMC40OTc2Myw4Ny4zNDU1OSAtNC42MjMwOCw1Ljg1Mzk0IC0xNi4wMTQ0OSwxNy4yODA1MiAtMjEuOTU3NDYsMjIuMDI1MjEgLTE4LjMwMDM2LDE0LjYxMDUyIC00MC40NzEyNiwyNC41MTY4NSAtNjQuMjg5NDUsMjguNzI1NTggLTEwLjA0MTQzLDEuNzc0MzYgLTMxLjQ4MTcyLDIuMjQ3NzkgLTQwLjk0MDU0LDAuOTA0MDMgeiBtIDI3LjQ4MTczLC0yMi4wNjA5MyBjIDExLjU2MjE3LC0xLjEyMzAzIDExLjYzMDQsLTEuMTg1MjcgMy41NzE4NywtMy4yNTg0NyAtMjcuMzY3NjMsLTcuMDQwODIgLTUyLjE5Nzc2LC0yNC43Njc0OCAtNjcuOTcwNzgsLTQ4LjUyNTUxIEMgOTAuMTg1NTEsMjAwLjQ1ODU1IDg0LjQ5NzEyMywxNjQuODc3NzkgOTMuNTY2ODQ0LDEzMi4zMTE5MSAxMDQuNjExMTMsOTIuNjU2MDYzIDEzNS4xMjEyNiw2MS45MDEwNSAxNzQuNjQ2NjIsNTAuNTgxMzQ3IGMgMy44MjA0OCwtMS4wOTQxNDYgNy41NTI4OCwtMi4wMDc1ODggOC4yOTQyMywtMi4wMjk4NjcgMS4zMzg2NCwtMC4wNDAyMyAxLjMzODkzLC0wLjA0NDE1IDAuMDQxNiwtMC41NjkzNDQgLTAuNzE4NDgsLTAuMjkwODU5IC01LjQ2ODIyLC0wLjg3NjM5MiAtMTAuNTU0OTgsLTEuMzAxMTg0IC0yNC45MTkyMSwtMi4wODA5ODggLTUxLjg5NTA2LDQuNzQxNTU5IC03Mi41Nzg1NjEsMTguMzU2MDc4IC0yNy4wNjU1NzEsMTcuODE1Mzc4IC00NS4xMDc3Myw0NC4yNjc0NiAtNTEuNDcxMDk3LDc1LjQ2MzEzIC02Ljk1MzU1NywzNC4wODkwMiAyLjExNzIwNCw3MC41MjA2MiAyNC4yOTU1NDgsOTcuNTgwMDQgNC4zMDI4NDYsNS4yNDk4NCAxNC4xODA0NDMsMTQuODQ4NDIgMTkuMTgzMzg3LDE4LjY0MTUzIDIzLjIxMjczMywxNy41OTkyOSA1My43ODM0MzMsMjYuNTM5OTYgODEuNTMyMDEzLDIzLjg0NDc0IHoiCiAgICAgaWQ9InBhdGgyMCIKICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgo8L3N2Zz4K") !important;
+  content: url(transform/moon.svg) !important;
 }
