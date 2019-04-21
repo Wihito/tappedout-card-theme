@@ -47,10 +47,6 @@ $land: (
 $colors: $white $blue $black $red $green;
 $guilds: $white $blue, $white $black, $blue $black, $blue $red, $black $green,
   $black $red, $red $white, $red $green, $green $white, $green $blue;
-$shards: $white $blue $black, $blue $black $red, $black $red $green,
-  $red $green $white, $green $white $blue;
-$wedges: $white $black $green, $blue $red $white, $black $green $blue,
-  $red $white $black, $green $blue $red;
 
 $masterpiece: #d6833a #973301;
 
@@ -340,15 +336,39 @@ a.qty {
   }
 }
 
+$guildLandSelector: "";
+@each $guild in $guilds {
+  $guildLandSelector: "#{$guildLandSelector}#{lands($guild, remove($colors, $guild))} a.card-link:before, ";
+}
+#{unquote($guildLandSelector)} {
+  background: background($land) !important;
+}
+
 .card-type-land#{lands(false, $colors)} a.card-link {
   background: border($land);
   &:before {
-    background: background($land);
+    background: background($land) !important;
   }
 }
 
-a[data-name="Murmuring Bosk"]:before {
-  background: background($green);
+a[data-name="Murmuring Bosk"].card-link:before {
+  background: background($green) !important;
+}
+
+$fetches: "Arid Mesa" $red $white, "Bloodstained Mire" $black $red,
+  "Flooded Strand" $white $blue, "Marsh Flats" $white $black,
+  "Misty Rainforest" $green $blue, "Polluted Delta" $blue $black,
+  "Scalding Tarn" $blue $red, "Verdant Catacombs" $black $green,
+  "Windswept Heath" $green $white, "Wooded Foothills" $red $green;
+
+@each $fetch in $fetches {
+  a[data-name="#{nth($fetch, 1)}"].card-link {
+    background: linear-gradient(
+      to right,
+      border(nth($fetch, 2)) 40%,
+      border(nth($fetch, 3)) 60%
+    ) !important;
+  }
 }
 
 @function transformSelectors($transformers) {

@@ -394,16 +394,70 @@ a.card-link:before {
   background: #dad5d1;
 }
 
+.card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a.card-link:before, .card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a.card-link:before, .card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before, .card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before {
+  background: #cdc2bf !important;
+}
+
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
   background: #988b7e;
 }
 
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #cdc2bf;
+  background: #cdc2bf !important;
 }
 
-a[data-name="Murmuring Bosk"]:before {
-  background: #becdc0;
+a[data-name="Murmuring Bosk"].card-link:before {
+  background: #becdc0 !important;
+}
+
+a[data-name="Arid Mesa"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f5081f), color-stop(60%, #f7f8ee)) !important;
+  background: linear-gradient(to right, #f5081f 40%, #f7f8ee 60%) !important;
+}
+
+a[data-name="Bloodstained Mire"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #1c1512), color-stop(60%, #f5081f)) !important;
+  background: linear-gradient(to right, #1c1512 40%, #f5081f 60%) !important;
+}
+
+a[data-name="Flooded Strand"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f7f8ee), color-stop(60%, #3459ae)) !important;
+  background: linear-gradient(to right, #f7f8ee 40%, #3459ae 60%) !important;
+}
+
+a[data-name="Marsh Flats"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f7f8ee), color-stop(60%, #1c1512)) !important;
+  background: linear-gradient(to right, #f7f8ee 40%, #1c1512 60%) !important;
+}
+
+a[data-name="Misty Rainforest"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3e7632), color-stop(60%, #3459ae)) !important;
+  background: linear-gradient(to right, #3e7632 40%, #3459ae 60%) !important;
+}
+
+a[data-name="Polluted Delta"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3459ae), color-stop(60%, #1c1512)) !important;
+  background: linear-gradient(to right, #3459ae 40%, #1c1512 60%) !important;
+}
+
+a[data-name="Scalding Tarn"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3459ae), color-stop(60%, #f5081f)) !important;
+  background: linear-gradient(to right, #3459ae 40%, #f5081f 60%) !important;
+}
+
+a[data-name="Verdant Catacombs"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #1c1512), color-stop(60%, #3e7632)) !important;
+  background: linear-gradient(to right, #1c1512 40%, #3e7632 60%) !important;
+}
+
+a[data-name="Windswept Heath"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #3e7632), color-stop(60%, #f7f8ee)) !important;
+  background: linear-gradient(to right, #3e7632 40%, #f7f8ee 60%) !important;
+}
+
+a[data-name="Wooded Foothills"].card-link {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f5081f), color-stop(60%, #3e7632)) !important;
+  background: linear-gradient(to right, #f5081f 40%, #3e7632 60%) !important;
 }
 
 [data-name="Temple of Aclazotz"], [data-name="Sanctum of the Sun"], [data-name="Conqueror's Foothold"], [data-name="Lost Vale"], [data-name="Gold-Forge Garrison"], [data-name="Itlimoc, Cradle of the Sun"], [data-name="Winged Temple of Orazca"], [data-name="Atzal, Cave of Eternity"], [data-name="Adanto, the First Fort"], [data-name="Metzali, Tower of Triumph"], [data-name="Primal Wellspring"], [data-name="Tomb of the Dusk Rose"], [data-name="Azcanta, the Sunken Ruin"], [data-name="Vault of Catlacan"], [data-name="Spires of Orazca"], [data-name="Treasure Cove"], [data-name="Spitfire Bastion"] {
