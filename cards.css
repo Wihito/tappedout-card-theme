@@ -50,6 +50,11 @@ a.qty {
   background: #d9c174;
 }
 
+.card a.card-link[data-image*="//static.tappedout.net/mtg-cards-2/kaladesh-inventions"]:before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #d6833a), color-stop(90%, #973301)) !important;
+  background: linear-gradient(to right, #d6833a 10%, #973301 90%) !important;
+}
+
 .card a.card-link.foil-card:after {
   position: absolute;
   content: "";
@@ -348,31 +353,31 @@ img[alt="FR"] {
 
 .card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link:before,
 .card-type-land[class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #dedede !important;
+  background: #dedede;
 }
 
 .card-color-blue:not(.card-color-white):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link:before,
 .card-type-land[class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #b2cde2 !important;
+  background: #b2cde2;
 }
 
 .card-color-black:not(.card-color-white):not(.card-color-blue):not(.card-color-red):not(.card-color-green) a.card-link:before,
 .card-type-land[class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #c4bfba !important;
+  background: #c4bfba;
 }
 
 .card-color-red:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-green) a.card-link:before,
 .card-type-land[class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #fabe99 !important;
+  background: #fabe99;
 }
 
 .card-color-green:not(.card-color-white):not(.card-color-blue):not(.card-color-black):not(.card-color-red) a.card-link:before,
 .card-type-land[class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before {
-  background: #becdc0 !important;
+  background: #becdc0;
 }
 
 .card-type-artifact[class*="card-color-colorless-cost"] a.card-link {
-  background: #e4e5e5 !important;
+  background: #e4e5e5;
 }
 
 .card-type-artifact[class*="card-color-colorless-cost"] a.card-link:before {
@@ -381,7 +386,7 @@ img[alt="FR"] {
 
 [class*="card-color-colorless-cost"]:not(.card-type-artifact):not(.card-type-land)
 a.card-link {
-  background: #e5e7e9 !important;
+  background: #e5e7e9;
 }
 
 [class*="card-color-colorless-cost"]:not(.card-type-artifact):not(.card-type-land)
@@ -390,7 +395,7 @@ a.card-link:before {
 }
 
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
-  background: #988b7e !important;
+  background: #988b7e;
 }
 
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
@@ -398,7 +403,7 @@ a.card-link:before {
 }
 
 a[data-name="Murmuring Bosk"]:before {
-  background: #becdc0 !important;
+  background: #becdc0;
 }
 
 [data-name="Temple of Aclazotz"], [data-name="Sanctum of the Sun"], [data-name="Conqueror's Foothold"], [data-name="Lost Vale"], [data-name="Gold-Forge Garrison"], [data-name="Itlimoc, Cradle of the Sun"], [data-name="Winged Temple of Orazca"], [data-name="Atzal, Cave of Eternity"], [data-name="Adanto, the First Fort"], [data-name="Metzali, Tower of Triumph"], [data-name="Primal Wellspring"], [data-name="Tomb of the Dusk Rose"], [data-name="Azcanta, the Sunken Ruin"], [data-name="Vault of Catlacan"], [data-name="Spires of Orazca"], [data-name="Treasure Cove"], [data-name="Spitfire Bastion"] {

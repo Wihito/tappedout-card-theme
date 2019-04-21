@@ -52,6 +52,8 @@ $shards: $white $blue $black, $blue $black $red, $black $red $green,
 $wedges: $white $black $green, $blue $red $white, $black $green $blue,
   $red $white $black, $green $blue $red;
 
+$masterpiece: #d6833a #973301;
+
 $languages: IT ES KO ZH RU JA DE PT FR;
 
 @function cost($color) {
@@ -138,6 +140,13 @@ a.qty {
         border-radius: 50vh;
         z-index: 1;
         background: background($gold);
+      }
+      &[data-image*="//static.tappedout.net/mtg-cards-2/kaladesh-inventions"]:before {
+        background: linear-gradient(
+          to right,
+          nth($masterpiece, 1) 10%,
+          nth($masterpiece, 2) 90%
+        ) !important;
       }
       &.foil-card:after {
         position: absolute;
@@ -307,18 +316,17 @@ a.qty {
 }
 
 @include borders($colors);
-
 @include borders($guilds);
 
 @each $color in $colors {
   #{spells($color, remove($colors, $color))} a.card-link:before,
   #{lands($color, remove($colors, $color))} a.card-link:before {
-    background: background($color) !important;
+    background: background($color);
   }
 }
 
 .card-type-artifact[class*="card-color-#{cost($artifact)}-cost"] a.card-link {
-  background: border($artifact) !important;
+  background: border($artifact);
   &:before {
     background: background($artifact);
   }
@@ -326,21 +334,21 @@ a.qty {
 
 [class*="card-color-#{cost($eldrazi)}-cost"]:not(.card-type-artifact):not(.card-type-land)
   a.card-link {
-  background: border($eldrazi) !important;
+  background: border($eldrazi);
   &:before {
     background: background($eldrazi);
   }
 }
 
 .card-type-land#{lands(false, $colors)} a.card-link {
-  background: border($land) !important;
+  background: border($land);
   &:before {
     background: background($land);
   }
 }
 
 a[data-name="Murmuring Bosk"]:before {
-  background: background($green) !important;
+  background: background($green);
 }
 
 @function transformSelectors($transformers) {
