@@ -1,54 +1,20 @@
-$white: (
-  cost: "white",
-  background: #dedede,
-  border: #f7f8ee
-);
-$blue: (
-  cost: "blue",
-  background: #b2cde2,
-  border: #3459ae
-);
-$black: (
-  cost: "black",
-  background: #c4bfba,
-  border: #1c1512
-);
-$red: (
-  cost: "red",
-  background: #fabe99,
-  border: #f5081f
-);
-$green: (
-  cost: "green",
-  background: #becdc0,
-  border: #3e7632
-);
+$white: (cost: "white", background: #dedede, border: #f7f8ee);
+$blue: (cost: "blue", background: #b2cde2, border: #3459ae);
+$black: (cost: "black", background: #c4bfba, border: #1c1512);
+$red: (cost: "red", background: #fabe99, border: #f5081f);
+$green: (cost: "green", background: #becdc0, border: #3e7632);
 
-$gold: (
-  cost: "gold",
-  background: #d9c174,
-  border: #efe777
-);
-$artifact: (
-  cost: "colorless",
-  background: #d5dde1,
-  border: #e4e5e5
-);
-$eldrazi: (
-  cost: "colorless",
-  background: #dad5d1,
-  border: #e5e7e9
-);
-$land: (
-  background: #cdc2bf,
-  border: #988b7e
-);
+$gold: (cost: "gold", background: #d9c174, border: #efe777);
+$artifact: (cost: "colorless", background: #d5dde1, border: #e4e5e5);
+$eldrazi: (cost: "colorless", background: #dad5d1, border: #e5e7e9);
+$land: (background: #cdc2bf, border: #988b7e);
 
 $colors: $white $blue $black $red $green;
 $guilds: $white $blue, $white $black, $blue $black, $blue $red, $black $green,
   $black $red, $red $white, $red $green, $green $white, $green $blue;
 
-$masterpiece: #d6833a #973301;
+$invention: #d6833a #973301;
+$invocation: (background: #957e62, border: #0f0200);
 
 $languages: IT ES KO ZH RU JA DE PT FR;
 
@@ -117,14 +83,16 @@ a.qty {
   white-space: nowrap;
   display: inline-block;
   a {
+    // First layer: border
     &.card-link {
       display: inline-block;
       position: relative;
       padding: 1.5px 5px;
       color: #1f1e1f;
       font-family: "beleren bold";
-      background: border($gold);
+      background: border($gold); // Default to gold to avoid pointing at each >3 color combination for it
       border-radius: 50vh;
+      // Second layer: background
       &:before {
         position: absolute;
         content: attr(data-name);
@@ -135,15 +103,9 @@ a.qty {
         right: 2px;
         border-radius: 50vh;
         z-index: 1;
-        background: background($gold);
+        background: background($gold); // Default to gold to avoid pointing at each >3 color combination for it
       }
-      &[data-image*="//static.tappedout.net/mtg-cards-2/kaladesh-inventions"]:before {
-        background: linear-gradient(
-          to right,
-          nth($masterpiece, 1) 10%,
-          nth($masterpiece, 2) 90%
-        ) !important;
-      }
+      // Third layer: foil
       &.foil-card:after {
         position: absolute;
         content: "";
@@ -170,24 +132,9 @@ a.qty {
   }
 }
 
-@each $language in $languages {
-  img[alt="#{$language}"] {
-    box-sizing: border-box;
-    background: url(language/#{$language}.svg) no-repeat;
-    width: 21px;
-    height: 21px;
-    padding-left: 21px;
-    margin-left: 1px;
-  }
-}
-
 @keyframes slide {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: (-400px) 0;
-  }
+  0% {    background-position: 0 0; }
+  100% {  background-position: (-400px) 0; }
 }
 
 [src*="foil-icon.jpg"] {
@@ -200,6 +147,24 @@ a.qty {
   padding: 0 !important;
   .arrow {
     display: none !important;
+  }
+}
+
+.tooltip {
+  left: -38px !important;
+  p {
+    display: inline;
+  }
+  a {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+  }
+  .tooltip-arrow {
+    border: none;
+  }
+  .tooltip-inner {
+    background: none;
   }
 }
 
@@ -235,24 +200,6 @@ a.qty {
     background-repeat: repeat;
     animation: slide 10s linear infinite;
     border-radius: 10px;
-  }
-}
-
-.tooltip {
-  left: -38px !important;
-  p {
-    display: inline;
-  }
-  a {
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-  }
-  .tooltip-arrow {
-    border: none;
-  }
-  .tooltip-inner {
-    background: none;
   }
 }
 
@@ -341,13 +288,13 @@ $guildLandSelector: "";
   $guildLandSelector: "#{$guildLandSelector}#{lands($guild, remove($colors, $guild))} a.card-link:before, ";
 }
 #{unquote($guildLandSelector)} {
-  background: background($land) !important;
+  background: background($land);
 }
 
 .card-type-land#{lands(false, $colors)} a.card-link {
   background: border($land);
   &:before {
-    background: background($land) !important;
+    background: background($land);
   }
 }
 
@@ -370,6 +317,58 @@ $fetches: "Arid Mesa" $red $white, "Bloodstained Mire" $black $red,
     ) !important;
   }
 }
+
+// #### Masterpieces ####
+
+.card a.card-link {
+  // Kaladesh Inventions
+  &[data-image*="kaladesh-inventions"]:before {
+    background: linear-gradient(
+      to right,
+      nth($invention, 1) 10%,
+      nth($invention, 2) 90%
+    ) !important;
+  }
+  // Zendikar Expeditions
+  &[data-image*="zendikar-expedition"]:before {
+    background: url(/background/expedition.svg) !important;
+  }
+  // Amonkhet Invocations
+  &[data-image*="masterpiece-series-amonkhet-invocations"] {
+    font-family: Invocation;
+    font-size: 15px;
+    height: 21px;
+    &:before {
+      background: background($invocation) !important;
+    }
+  }
+}
+
+@font-face {
+  font-family: "Invocation";
+  src:
+    url("/font/Invocation.woff") format("woff"),
+    url("/font/Invocation.ttf") format("truetype"),
+    url("/font/Invocation.svg#Invocation") format("svg");
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+// #### Language icons ####
+
+@each $language in $languages {
+  img[alt="#{$language}"] {
+    box-sizing: border-box;
+    background: url(language/#{$language}.svg) no-repeat;
+    width: 21px;
+    height: 21px;
+    padding-left: 21px;
+    margin-left: 1px;
+  }
+}
+
+// #### Transformers ####
 
 @function transformSelectors($transformers) {
   $result: "";
@@ -469,3 +468,13 @@ $moonTransformFront: url(transform/sun.svg);
 $moonTransformBack: url(transform/moon.svg);
 
 @include transform($moonTransformers, $moonTransformFront, $moonTransformBack);
+
+// Preload of flip icons
+body:after {
+  content: 
+    url(/alter/alter-icon-back.svg)
+    url(/transform/land.svg)
+    url(/transform/ignite.svg)
+    url(/transform/emrakul.svg)
+    url(/transform/moon.svg);
+}
