@@ -50,11 +50,6 @@ a.qty {
   background: #d9c174;
 }
 
-.card a.card-link[data-image*="//static.tappedout.net/mtg-cards-2/kaladesh-inventions"]:before {
-  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #d6833a), color-stop(90%, #973301)) !important;
-  background: linear-gradient(to right, #d6833a 10%, #973301 90%) !important;
-}
-
 .card a.card-link.foil-card:after {
   position: absolute;
   content: "";
@@ -79,96 +74,6 @@ a.qty {
 
 .card:hover a.card-link + a {
   content: url(alter/alter-icon-front.svg);
-}
-
-img[alt="IT"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/IT.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="ES"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/ES.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="KO"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/KO.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="ZH"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/ZH.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="RU"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/RU.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="JA"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/JA.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="DE"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/DE.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="PT"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/PT.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
-}
-
-img[alt="FR"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: url(language/FR.svg) no-repeat;
-  width: 21px;
-  height: 21px;
-  padding-left: 21px;
-  margin-left: 1px;
 }
 
 @-webkit-keyframes slide {
@@ -201,6 +106,28 @@ img[alt="FR"] {
 
 .popover .arrow {
   display: none !important;
+}
+
+.tooltip {
+  left: -38px !important;
+}
+
+.tooltip p {
+  display: inline;
+}
+
+.tooltip a {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+}
+
+.tooltip .tooltip-arrow {
+  border: none;
+}
+
+.tooltip .tooltip-inner {
+  background: none;
 }
 
 .popover-content {
@@ -242,28 +169,6 @@ img[alt="FR"] {
   -webkit-animation: slide 10s linear infinite;
           animation: slide 10s linear infinite;
   border-radius: 10px;
-}
-
-.tooltip {
-  left: -38px !important;
-}
-
-.tooltip p {
-  display: inline;
-}
-
-.tooltip a {
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
-}
-
-.tooltip .tooltip-arrow {
-  border: none;
-}
-
-.tooltip .tooltip-inner {
-  background: none;
 }
 
 .card-color-white:not(.card-color-blue):not(.card-color-black):not(.card-color-red):not(.card-color-green) a.card-link,
@@ -395,7 +300,7 @@ a.card-link:before {
 }
 
 .card-type-land[class*="card-mana-white"][class*="card-mana-blue"]:not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-white"][class*="card-mana-black"]:not([class*="card-mana-blue"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-blue"][class*="card-mana-black"]:not([class*="card-mana-white"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-blue"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-black"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-red"]) a.card-link:before, .card-type-land[class*="card-mana-black"][class*="card-mana-red"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-red"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-green"]) a.card-link:before, .card-type-land[class*="card-mana-red"][class*="card-mana-green"]:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]) a.card-link:before, .card-type-land[class*="card-mana-green"][class*="card-mana-white"]:not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before, .card-type-land[class*="card-mana-green"][class*="card-mana-blue"]:not([class*="card-mana-white"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]) a.card-link:before {
-  background: #cdc2bf !important;
+  background: #cdc2bf;
 }
 
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link {
@@ -403,7 +308,7 @@ a.card-link:before {
 }
 
 .card-type-land.card-type-land:not([class*="card-mana-white"]):not([class*="card-mana-blue"]):not([class*="card-mana-black"]):not([class*="card-mana-red"]):not([class*="card-mana-green"]) a.card-link:before {
-  background: #cdc2bf !important;
+  background: #cdc2bf;
 }
 
 a[data-name="Murmuring Bosk"].card-link:before {
@@ -458,6 +363,123 @@ a[data-name="Windswept Heath"].card-link {
 a[data-name="Wooded Foothills"].card-link {
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #f5081f), color-stop(60%, #3e7632)) !important;
   background: linear-gradient(to right, #f5081f 40%, #3e7632 60%) !important;
+}
+
+.card a.card-link[data-image*="kaladesh-inventions"]:before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #d6833a), color-stop(90%, #973301)) !important;
+  background: linear-gradient(to right, #d6833a 10%, #973301 90%) !important;
+}
+
+.card a.card-link[data-image*="zendikar-expedition"]:before {
+  background: url(background/expedition.svg) !important;
+}
+
+.card a.card-link[data-image*="masterpiece-series-amonkhet-invocations"] {
+  font-family: Invocation;
+  font-size: 15px;
+  height: 21px;
+}
+
+.card a.card-link[data-image*="masterpiece-series-amonkhet-invocations"]:before {
+  background: #957e62 !important;
+}
+
+@font-face {
+  font-family: "Invocation";
+  src: url("font/Invocation.woff") format("woff"), url("font/Invocation.ttf") format("truetype"), url("font/Invocation.svg#Invocation") format("svg");
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+img[alt="IT"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/IT.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="ES"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/ES.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="KO"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/KO.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="ZH"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/ZH.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="RU"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/RU.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="JA"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/JA.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="DE"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/DE.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="PT"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/PT.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
+}
+
+img[alt="FR"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(language/FR.svg) no-repeat;
+  width: 21px;
+  height: 21px;
+  padding-left: 21px;
+  margin-left: 1px;
 }
 
 [data-name="Temple of Aclazotz"], [data-name="Sanctum of the Sun"], [data-name="Conqueror's Foothold"], [data-name="Lost Vale"], [data-name="Gold-Forge Garrison"], [data-name="Itlimoc, Cradle of the Sun"], [data-name="Winged Temple of Orazca"], [data-name="Atzal, Cave of Eternity"], [data-name="Adanto, the First Fort"], [data-name="Metzali, Tower of Triumph"], [data-name="Primal Wellspring"], [data-name="Tomb of the Dusk Rose"], [data-name="Azcanta, the Sunken Ruin"], [data-name="Vault of Catlacan"], [data-name="Spires of Orazca"], [data-name="Treasure Cove"], [data-name="Spitfire Bastion"] {
@@ -530,4 +552,8 @@ a[data-name="Wooded Foothills"].card-link {
 
 [data-name="Perfected Form"]:hover, [data-name="Infectious Curse"]:hover, [data-name="Werewolf Ransacker"]:hover, [data-name="Avacyn, the Purifier"]:hover, [data-name="Arlinn, Embraced by the Moon"]:hover, [data-name="Ancient of the Equinox"]:hover, [data-name="Lunarch Inquisitors"]:hover, [data-name="Lord of Lineage"]:hover, [data-name="Neck Breaker"]:hover, [data-name="Chalice of Death"]:hover, [data-name="Markov's Servant"]:hover, [data-name="Homicidal Brute"]:hover, [data-name="Unholy Fiend"]:hover, [data-name="Branded Howler"]:hover, [data-name="Bearer of Overwhelming Truths"]:hover, [data-name="Nightfall Predator"]:hover, [data-name="Insectile Aberration"]:hover, [data-name="Krallenhorde Howler"]:hover, [data-name="Withengar Unbound"]:hover, [data-name="Insidious Mist"]:hover, [data-name="Garruk, the Veil-Cursed"]:hover, [data-name="Gatstaf Ravagers"]:hover, [data-name="Gatstaf Howler"]:hover, [data-name="Vildin-Pack Alpha"]:hover, [data-name="Krallenhorde Wantons"]:hover, [data-name="Westvale Cult Leader"]:hover, [data-name="Bane of Hanweir"]:hover, [data-name="Scrounged Scythe"]:hover, [data-name="Heir to the Night"]:hover, [data-name="Lone Wolf of the Natterknolls"]:hover, [data-name="Hinterland Scourge"]:hover, [data-name="Timber Shredder"]:hover, [data-name="Ravager of the Fells"]:hover, [data-name="Wildblood Pack"]:hover, [data-name="Flameheart Werewolf"]:hover, [data-name="Demon-Possessed Witch"]:hover, [data-name="Terror of Kruin Pass"]:hover, [data-name="Silverpelt Werewolf"]:hover, [data-name="Lambholt Butcher"]:hover, [data-name="Unhallowed Cathar"]:hover, [data-name="Ludevic's Abomination"]:hover, [data-name="Howlpack Alpha"]:hover, [data-name="Tovolar's Magehunter"]:hover, [data-name="Ashmouth Blade"]:hover, [data-name="Wayward Disciple"]:hover, [data-name="Archdemon of Greed"]:hover, [data-name="Merciless Predator"]:hover, [data-name="Werewolf of Ancient Hunger"]:hover, [data-name="Moonscarred Werewolf"]:hover, [data-name="Stalking Vampire"]:hover, [data-name="Skin Shedder"]:hover, [data-name="One of the Pack"]:hover, [data-name="Ghastly Haunting"]:hover, [data-name="Persistent Nightmare"]:hover, [data-name="Awoken Horror"]:hover, [data-name="Stonewing Antagonizer"]:hover, [data-name="Thraben Militia"]:hover, [data-name="Rampaging Werewolf"]:hover, [data-name="Incited Rabble"]:hover, [data-name="Ulrich, Uncontested Alpha"]:hover, [data-name="Ulvenwald Primordials"]:hover, [data-name="Unimpeded Trespasser"]:hover, [data-name="Ironfang"]:hover, [data-name="Moonrise Intruder"]:hover, [data-name="Howlpack of Estwald"]:hover, [data-name="Ormendahl, Profane Prince"]:hover, [data-name="Krallenhorde Killer"]:hover {
   content: url(transform/moon.svg) !important;
+}
+
+body:after {
+  content: url(alter/alter-icon-back.svg) url(transform/land.svg) url(transform/ignite.svg) url(transform/emrakul.svg) url(transform/moon.svg);
 }
